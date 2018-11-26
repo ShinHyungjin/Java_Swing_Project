@@ -4,22 +4,33 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 public class Login extends JFrame {
 	
-	JLabel name, id, Login;
-	JTextField Uname, Uid;
-	JButton login, clear;
+	JFrame frame = null;
+	JComboBox Usel = null;
+	JLabel name, id, fmajor,tmajor, dou, Login;
+	JTextField Uname, Uid, Ufmajor,Utmajor;
+	JButton login2, clear, Ufmajorbutton, Utmajorbutton;
 	
 	public Login() {
-		setTitle("����� �α���");
+		setTitle("사용자 로그인");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Color color = new Color(140,252,100,100);
 		Color color2 = new Color(35,100,21,255);
@@ -28,47 +39,171 @@ public class Login extends JFrame {
 		c.setBackground(color);
 		c.setLayout(null);
 		
-	    /*Login = new JLabel("LOGIN");
-		Login.setFont(new Font("�޸հ���ü",Font.BOLD,10));
+	    Login = new JLabel("LOGIN");
+		Login.setFont(new Font("휴먼고딕체",Font.BOLD,40));
 		c.add(Login);
-		name.setBounds(20, 20, 300, 300);*/
+		Login.setBounds(160, 30, 250, 40);
 
-		name = new JLabel("�̸�");
-		name.setFont(new Font("�޸հ���ü",Font.BOLD,17));
+		name = new JLabel("이름");
+		name.setFont(new Font("휴먼고딕체",Font.BOLD,17));
 		c.add(name);
 		name.setBounds(50, 80, 100, 40);
 		
 		Uname = new JTextField(5);
-		name.setFont(new Font("�޸հ���ü",Font.BOLD,15));
+		name.setFont(new Font("휴먼고딕체",Font.BOLD,15));
 		c.add(Uname);
 		Uname.setBounds(160, 90, 150, 30);
 		
-		id = new JLabel("�й�");
-		name.setFont(new Font("�޸հ���ü",Font.BOLD,17));
+		Uname.addKeyListener(new KeyListener() {;
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				if(Uname.getText().length() > 4)
+					Uname.setText(Uname.getText().substring(0, 4));
+			}
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+			}
+		});
+		
+		id = new JLabel("학번");
+		id.setFont(new Font("휴먼고딕체",Font.BOLD,17));
 		c.add(id);
 		id.setBounds(50, 140, 100, 40);
 		
 		Uid = new JTextField(10);
-		name.setFont(new Font("�޸հ���ü",Font.BOLD,15));
+		Uid.setFont(new Font("휴먼고딕체",Font.BOLD,15));
 		c.add(Uid);
 		Uid.setBounds(160, 150, 150, 30);
 		
-		login = new JButton("�α���");
-		name.setFont(new Font("�޸հ���ü",Font.BOLD,16));
-		c.add(login);
-		login.setBounds(100, 220, 100, 40);
+		Uid.addKeyListener(new KeyListener() {;
+		public void keyTyped(KeyEvent e) {
+			// TODO Auto-generated method stub
+			if(Uid.getText().length() > 9)
+				Uid.setText(Uid.getText().substring(0, 9));
+		}
+		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		public void keyPressed(KeyEvent e) {
+			// TODO Auto-generated method stub
+		}
+	});
 		
-		clear = new JButton("�ʱ�ȭ");
-		name.setFont(new Font("�޸հ���ü",Font.BOLD,16));
+		fmajor = new JLabel("제1전공");
+		fmajor.setFont(new Font("휴먼고딕체",Font.BOLD,17));
+		c.add(fmajor);
+		fmajor.setBounds(50, 200, 100, 40);
+		
+		Ufmajor = new JTextField(25);
+		Ufmajor.setFont(new Font("휴먼고딕체",Font.BOLD,15));
+		c.add(Ufmajor);
+		Ufmajor.setBounds(160, 210, 230, 30);
+		Ufmajor.setEnabled(false);
+		
+		Ufmajorbutton = new JButton("전공선택");
+		Ufmajorbutton.setFont(new Font("휴먼고딕체",Font.BOLD,17));
+		c.add(Ufmajorbutton);
+		Ufmajorbutton.setBounds(400, 210, 110, 30);
+		
+		Ufmajorbutton.addActionListener(new ActionListener() {    // submit 버튼 클릭시 동작하는 리스너 (새로운 프레임 생성(dialog))
+			public void actionPerformed(ActionEvent e) {
+				select dialog = new select(frame, Ufmajor);
+			}
+		});
+		
+		tmajor = new JLabel("복수/부전공");
+		tmajor.setFont(new Font("휴먼고딕체",Font.BOLD,17));
+		c.add(tmajor);
+		tmajor.setBounds(50, 260, 100, 40);
+		
+		Utmajor = new JTextField(25);
+		Utmajor.setFont(new Font("휴먼고딕체",Font.BOLD,15));
+		c.add(Utmajor);
+		Utmajor.setBounds(160, 270, 230, 30);
+		Utmajor.setEnabled(false);
+		
+		Utmajorbutton = new JButton("전공선택");
+		Utmajorbutton.setFont(new Font("휴먼고딕체",Font.BOLD,17));
+		c.add(Utmajorbutton);
+		Utmajorbutton.setBounds(400, 270, 110, 30);
+		
+		dou = new JLabel("(복수/부전공자는 제1전공,복수/부전공을 입력하세요)");
+		dou.setFont(new Font("휴먼고딕체",Font.ITALIC,15));
+		c.add(dou);
+		dou.setBounds(50, 310, 400, 30);
+		
+		login2 = new JButton("로그인");
+		login2.setFont(new Font("휴먼고딕체",Font.BOLD,16));
+		c.add(login2);
+		login2.setBounds(150, 380, 100, 40);
+		
+		clear = new JButton("초기화");
+		clear.setFont(new Font("휴먼고딕체",Font.BOLD,16));
 		c.add(clear);
-		clear.setBounds(230, 220, 100, 40);
+		clear.setBounds(310, 380, 100, 40);
 		
-		setSize(400, 400);
+		setSize(600, 600);
 		setResizable(false);
 		setVisible(true);
 	}
-
 	public static void main(String[] args) {
 		Login frame = new Login();
+	}
+}
+
+/*class KeyListenerevent implements KeyListener {
+	JTextField Uname = null;
+	JTextField Uid = null;
+	public void keyTyped(KeyEvent e) {
+		if(Uname.getText().length() > 4)
+			Uname.setText(Uname.getText().substring(0, 4));
+		else if(Uid.getText().length() > 9)
+			Uid.setText(Uid.getText().substring(0, 9));
+	}
+	public void keyReleased(KeyEvent e) {
+	}
+	public void keyPressed(KeyEvent e) {
+	}
+};
+*/
+
+class select extends JDialog {
+	public select(JFrame frame, JTextField Ufmajor) {
+		super(frame, true); // true 이면 이전 프레임은 사용 못하게함 (=독점) / false 이면 사용가능
+
+		setTitle("전공선택...");
+		setLayout(new FlowLayout());
+		String line;
+
+		JComboBox<String> Usel = new JComboBox<String>();
+		add(new JScrollPane(Usel));
+			try {
+				BufferedReader reader2 = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\전공.txt"), "euc-kr"));
+				while (true) {
+					line = reader2.readLine();
+					if (line == null)
+						break;
+					Usel.addItem(line);
+				}
+				reader2.close();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		JButton Us = new JButton("선택하기");
+		add(Us);
+		Us.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				/*Ufmajor.setText(Usel.getText()); 
+				setVisible(false);
+				dispose();*/         // 수정해야됨.... 왜 안될까
+			}
+		});
+		setSize(200, 150);
+		setVisible(true);
 	}
 }
