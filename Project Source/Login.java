@@ -12,7 +12,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -22,7 +21,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 public class Login extends JFrame {
-	
 	JFrame frame = null;
 	JComboBox Usel = null;
 	JLabel name, id, fmajor,tmajor, dou, Login;
@@ -30,7 +28,7 @@ public class Login extends JFrame {
 	JButton login2, clear, Ufmajorbutton, Utmajorbutton;
 	
 	public Login() {
-		setTitle("ì‚¬ìš©ì ë¡œê·¸ì¸");
+		setTitle("»ç¿ëÀÚ ·Î±×ÀÎ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Color color = new Color(140,252,100,100);
 		Color color2 = new Color(35,100,21,255);
@@ -40,25 +38,25 @@ public class Login extends JFrame {
 		c.setLayout(null);
 		
 	    Login = new JLabel("LOGIN");
-		Login.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,40));
+		Login.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,40));
 		c.add(Login);
 		Login.setBounds(160, 30, 250, 40);
 
-		name = new JLabel("ì´ë¦„");
-		name.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,17));
+		name = new JLabel("ÀÌ¸§");
+		name.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,17));
 		c.add(name);
-		name.setBounds(50, 80, 100, 40);
+		name.setBounds(50, 85, 100, 40);
 		
 		Uname = new JTextField(5);
-		name.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,15));
+		Uname.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,15));
 		c.add(Uname);
 		Uname.setBounds(160, 90, 150, 30);
 		
 		Uname.addKeyListener(new KeyListener() {;
 			public void keyTyped(KeyEvent e) {
 				// TODO Auto-generated method stub
-				if(Uname.getText().length() > 4)
-					Uname.setText(Uname.getText().substring(0, 4));
+				if(Uname.getText().length() > 3)
+					Uname.setText(Uname.getText().substring(0, 3));
 			}
 			public void keyReleased(KeyEvent e) {
 				// TODO Auto-generated method stub
@@ -69,21 +67,21 @@ public class Login extends JFrame {
 			}
 		});
 		
-		id = new JLabel("í•™ë²ˆ");
-		id.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,17));
+		id = new JLabel("ÇĞ¹ø");
+		id.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,17));
 		c.add(id);
-		id.setBounds(50, 140, 100, 40);
+		id.setBounds(50, 145, 100, 40);
 		
 		Uid = new JTextField(10);
-		Uid.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,15));
+		Uid.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,15));
 		c.add(Uid);
 		Uid.setBounds(160, 150, 150, 30);
 		
 		Uid.addKeyListener(new KeyListener() {;
 		public void keyTyped(KeyEvent e) {
 			// TODO Auto-generated method stub
-			if(Uid.getText().length() > 9)
-				Uid.setText(Uid.getText().substring(0, 9));
+			if(Uid.getText().length() > 8)
+				Uid.setText(Uid.getText().substring(0, 8));
 		}
 		public void keyReleased(KeyEvent e) {
 			// TODO Auto-generated method stub
@@ -94,56 +92,62 @@ public class Login extends JFrame {
 		}
 	});
 		
-		fmajor = new JLabel("ì œ1ì „ê³µ");
-		fmajor.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,17));
+		fmajor = new JLabel("Á¦1Àü°ø");
+		fmajor.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,17));
 		c.add(fmajor);
-		fmajor.setBounds(50, 200, 100, 40);
+		fmajor.setBounds(50, 205, 100, 40);
 		
 		Ufmajor = new JTextField(25);
-		Ufmajor.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,15));
+		Ufmajor.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,15));
 		c.add(Ufmajor);
 		Ufmajor.setBounds(160, 210, 230, 30);
 		Ufmajor.setEnabled(false);
 		
-		Ufmajorbutton = new JButton("ì „ê³µì„ íƒ");
-		Ufmajorbutton.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,17));
+		Ufmajorbutton = new JButton("Àü°ø¼±ÅÃ");
+		Ufmajorbutton.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,17));
 		c.add(Ufmajorbutton);
 		Ufmajorbutton.setBounds(400, 210, 110, 30);
 		
-		Ufmajorbutton.addActionListener(new ActionListener() {    // submit ë²„íŠ¼ í´ë¦­ì‹œ ë™ì‘í•˜ëŠ” ë¦¬ìŠ¤ë„ˆ (ìƒˆë¡œìš´ í”„ë ˆì„ ìƒì„±(dialog))
+		Ufmajorbutton.addActionListener(new ActionListener() {    // submit ¹öÆ° Å¬¸¯½Ã µ¿ÀÛÇÏ´Â ¸®½º³Ê (»õ·Î¿î ÇÁ·¹ÀÓ »ı¼º(dialog))
 			public void actionPerformed(ActionEvent e) {
 				select dialog = new select(frame, Ufmajor);
 			}
 		});
 		
-		tmajor = new JLabel("ë³µìˆ˜/ë¶€ì „ê³µ");
-		tmajor.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,17));
+		tmajor = new JLabel("º¹¼ö/ºÎÀü°ø");
+		tmajor.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,17));
 		c.add(tmajor);
-		tmajor.setBounds(50, 260, 100, 40);
+		tmajor.setBounds(50, 265, 100, 40);
 		
 		Utmajor = new JTextField(25);
-		Utmajor.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,15));
+		Utmajor.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,15));
 		c.add(Utmajor);
 		Utmajor.setBounds(160, 270, 230, 30);
 		Utmajor.setEnabled(false);
 		
-		Utmajorbutton = new JButton("ì „ê³µì„ íƒ");
-		Utmajorbutton.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,17));
+		Utmajorbutton = new JButton("Àü°ø¼±ÅÃ");
+		Utmajorbutton.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,17));
 		c.add(Utmajorbutton);
 		Utmajorbutton.setBounds(400, 270, 110, 30);
 		
-		dou = new JLabel("(ë³µìˆ˜/ë¶€ì „ê³µìëŠ” ì œ1ì „ê³µ,ë³µìˆ˜/ë¶€ì „ê³µì„ ì…ë ¥í•˜ì„¸ìš”)");
-		dou.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.ITALIC,15));
-		c.add(dou);
-		dou.setBounds(50, 310, 400, 30);
+		Utmajorbutton.addActionListener(new ActionListener() {    // submit ¹öÆ° Å¬¸¯½Ã µ¿ÀÛÇÏ´Â ¸®½º³Ê (»õ·Î¿î ÇÁ·¹ÀÓ »ı¼º(dialog))
+			public void actionPerformed(ActionEvent e) {
+				select2 dialog2 = new select2(frame, Utmajor);
+			}
+		});
 		
-		login2 = new JButton("ë¡œê·¸ì¸");
-		login2.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,16));
+		dou = new JLabel("(º¹¼ö/ºÎÀü°øÀÚ´Â Á¦1Àü°ø,º¹¼ö/ºÎÀü°øÀ» ¼±ÅÃÇÏ¼¼¿ä)");
+		dou.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.ITALIC,15));
+		c.add(dou);
+		dou.setBounds(60, 310, 400, 30);
+		
+		login2 = new JButton("·Î±×ÀÎ");
+		login2.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,18));
 		c.add(login2);
 		login2.setBounds(150, 380, 100, 40);
 		
-		clear = new JButton("ì´ˆê¸°í™”");
-		clear.setFont(new Font("íœ´ë¨¼ê³ ë”•ì²´",Font.BOLD,16));
+		clear = new JButton("ÃÊ±âÈ­");
+		clear.setFont(new Font("ÈŞ¸Õ°íµñÃ¼",Font.BOLD,18));
 		c.add(clear);
 		clear.setBounds(310, 380, 100, 40);
 		
@@ -155,52 +159,70 @@ public class Login extends JFrame {
 		Login frame = new Login();
 	}
 }
-
-/*class KeyListenerevent implements KeyListener {
-	JTextField Uname = null;
-	JTextField Uid = null;
-	public void keyTyped(KeyEvent e) {
-		if(Uname.getText().length() > 4)
-			Uname.setText(Uname.getText().substring(0, 4));
-		else if(Uid.getText().length() > 9)
-			Uid.setText(Uid.getText().substring(0, 9));
-	}
-	public void keyReleased(KeyEvent e) {
-	}
-	public void keyPressed(KeyEvent e) {
-	}
-};
-*/
-
 class select extends JDialog {
 	public select(JFrame frame, JTextField Ufmajor) {
-		super(frame, true); // true ì´ë©´ ì´ì „ í”„ë ˆì„ì€ ì‚¬ìš© ëª»í•˜ê²Œí•¨ (=ë…ì ) / false ì´ë©´ ì‚¬ìš©ê°€ëŠ¥
+		super(frame, true); // true ÀÌ¸é ÀÌÀü ÇÁ·¹ÀÓÀº »ç¿ë ¸øÇÏ°ÔÇÔ (=µ¶Á¡) / false ÀÌ¸é »ç¿ë°¡´É
 
-		setTitle("ì „ê³µì„ íƒ...");
+		setTitle("Àü°ø¼±ÅÃ...");
 		setLayout(new FlowLayout());
 		String line;
 
 		JComboBox<String> Usel = new JComboBox<String>();
 		add(new JScrollPane(Usel));
 			try {
-				BufferedReader reader2 = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\ì „ê³µ.txt"), "euc-kr"));
+				BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\Àü°ø.txt"), "euc-kr"));
 				while (true) {
-					line = reader2.readLine();
+					line = reader.readLine();
 					if (line == null)
 						break;
 					Usel.addItem(line);
 				}
-				reader2.close();
+				reader.close();
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-		JButton Us = new JButton("ì„ íƒí•˜ê¸°");
+		JButton Us = new JButton("¼±ÅÃÇÏ±â");
 		add(Us);
 		Us.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*Ufmajor.setText(Usel.getText()); 
+				Ufmajor.setText((String)Usel.getSelectedItem());
 				setVisible(false);
-				dispose();*/         // ìˆ˜ì •í•´ì•¼ë¨.... ì™œ ì•ˆë ê¹Œ
+				dispose();
+			}
+		});
+		setSize(200, 150);
+		setVisible(true);
+	}
+}
+class select2 extends JDialog {
+	public select2(JFrame frame, JTextField Utmajor) {
+		super(frame, true); // true ÀÌ¸é ÀÌÀü ÇÁ·¹ÀÓÀº »ç¿ë ¸øÇÏ°ÔÇÔ (=µ¶Á¡) / false ÀÌ¸é »ç¿ë°¡´É
+
+		setTitle("Àü°ø¼±ÅÃ...");
+		setLayout(new FlowLayout());
+		String line;
+
+		JComboBox<String> Usel = new JComboBox<String>();
+		add(new JScrollPane(Usel));
+			try {
+				BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\Àü°ø.txt"), "euc-kr"));
+				while (true) {
+					line = reader.readLine();
+					if (line == null)
+						break;
+					Usel.addItem(line);
+				}
+				reader.close();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		JButton Us = new JButton("¼±ÅÃÇÏ±â");
+		add(Us);
+		Us.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Utmajor.setText((String)Usel.getSelectedItem());
+				setVisible(false);
+				dispose();
 			}
 		});
 		setSize(200, 150);
