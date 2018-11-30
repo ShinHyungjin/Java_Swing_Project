@@ -1,0 +1,42 @@
+package h02024.h0204;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Graphics;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+@SuppressWarnings("serial")
+public class ActionEventExample extends JFrame {
+
+	public ActionEventExample() {
+		setTitle("복수 전공");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		Container contentPane = getContentPane();
+		contentPane.setBackground(Color.ORANGE);
+		contentPane.setLayout(new FlowLayout());
+
+	JButton b1= new JButton("제 1전공");
+	contentPane.add(b1);
+	contentPane.add(new  JTextField(""+" "));
+	
+
+	Container contentPane = getContentPane();
+	
+	
+	
+	
+	setSize(500, 500);
+       setVisible(true);  
+	}
+
+	@SuppressWarnings("unused")
+	public static void main(String[] args) {
+		ActionEventExample frame = new ActionEventExample();
+	}
+}
