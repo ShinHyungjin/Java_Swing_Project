@@ -1,4 +1,4 @@
-package hoho.hoho;
+package kr.ac.halla.h02404.helloworld;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -30,11 +30,56 @@ public class Need extends JFrame {
 		go1 = new JLabel("교양필수");
 		go1.setFont(new Font("휴먼고딕체",Font.BOLD,17));
 		c.add(go1);
-		go1.setBounds(50, 85, 100, 40);
+		go1.setBounds(5, 85, 100, 40);
+		
+		go2 = new JLabel("교양선택");
+		go2.setFont(new Font("휴먼고딕체",Font.BOLD,17));
+		c.add(go2);
+		go2.setBounds(5, 85, 100, 150);
+		
+		gi1 = new JLabel("기본필수");
+		gi1.setFont(new Font("휴먼고딕체",Font.BOLD,17));
+		c.add(gi1);
+		gi1.setBounds(150, 85, 100, 40);
+		
+		gi2 = new JLabel("기본선택");
+		gi2.setFont(new Font("휴먼고딕체",Font.BOLD,17));
+		c.add(gi2);
+		gi2.setBounds(150, 85, 100, 150);
+		
+		jun1 = new JLabel("전공필수");
+		jun1.setFont(new Font("휴먼고딕체",Font.BOLD,17));
+		c.add(jun1);
+		jun1.setBounds(295, 85, 100, 40);
+		
+		jun2 = new JLabel("전공선택");
+		jun2.setFont(new Font("휴먼고딕체",Font.BOLD,17));
+		c.add(jun2);
+		jun2.setBounds(295, 85, 100, 150);
 		
 		box1 = new JTextField();
 		c.add(box1);
-		box1.setBounds(160, 90, 150, 30);
+		box1.setBounds(75, 90, 50, 30);
+		
+		box2 = new JTextField();
+		c.add(box2);
+		box2.setBounds(220, 90, 50, 30);
+		
+		box3 = new JTextField();
+		c.add(box3);
+		box3.setBounds(365, 90, 50, 30);
+		
+		box4 = new JTextField();
+		c.add(box4);
+		box4.setBounds(75, 150, 50, 30);
+		
+		box5 = new JTextField();
+		c.add(box5);
+		box5.setBounds(220, 150, 50, 30);
+		
+		box6 = new JTextField();
+		c.add(box6);
+		box6.setBounds(365, 150, 50, 30);
 		
 		
 		
