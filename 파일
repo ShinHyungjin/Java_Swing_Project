@@ -1,0 +1,156 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
+import java.awt.Button;
+import javax.swing.JLabel;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+import java.awt.TextArea;
+import java.awt.List;
+import java.awt.ComponentOrientation;
+import java.awt.Cursor;
+import java.awt.Panel;
+import java.awt.Label;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JTree;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.AncestorEvent;
+public class AS extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextArea area;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AS frame = new AS();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public AS() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 573, 602);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setFont(new Font("굴림", Font.PLAIN, 40));
+		textField.setText("\uBCF5\uC218\uC804\uACF5");
+		textField.setBounds(120, 10, 292, 65);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("1\uC804\uACF5");
+		btnNewButton.setFont(new Font("굴림", Font.PLAIN, 20));
+		btnNewButton.setBounds(12, 144, 115, 50);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("\uBCF5\uC218\uC804\uACF5");
+		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		btnNewButton_1.setBounds(12, 204, 115, 56);
+		contentPane.add(btnNewButton_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(139, 144, 152, 50);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(139, 204, 152, 56);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(303, 144, 206, 50);
+		contentPane.add(textField_3);
+		textField_3.setColumns(10);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(303, 205, 206, 56);
+		contentPane.add(textField_4);
+		textField_4.setColumns(10);
+		
+		JTextField textField_5 = new JTextField();
+		textField_5.setBounds(139, 271, 292, 50);
+		contentPane.add(textField_5);
+		textField_5.setEditable(false);
+		textField_5.setFont(new Font("굴림", Font.PLAIN, 43));
+		textField_5.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_5.setText("\uACFC\uBAA9");
+		textField_5.setColumns(10);
+		
+		JButton submit = new JButton("버튼");
+		submit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				JFileChooser chooser = new JFileChooser();
+				int result = chooser.showOpenDialog(area);	
+				if (result != JFileChooser.APPROVE_OPTION)
+					return;
+
+				String filePath = chooser.getSelectedFile().getPath();
+				try {
+					BufferedReader reader = new BufferedReader(new FileReader(filePath));
+					while (true) {
+						String line = reader.readLine();
+						if (line == null)
+							break;
+						area.setText(area.getText() + line);
+					}
+					reader.close();
+
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			
+			}
+		});
+		submit.setBounds(12, 364, 97, 54);
+		contentPane.add(submit);
+		
+		area = new JTextArea();
+		area.setRows(20);
+		area.setColumns(30);
+		area.setBounds(117, 324, 428, 230);
+		contentPane.add(area);
+		
+		JLabel text = new JLabel("a");
+		text.setBounds(52, 448, 57, 15);
+		contentPane.add(text);
+	}
+}
