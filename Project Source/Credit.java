@@ -32,6 +32,5 @@ public class Credit extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		Credit frame = new Credit();
 	}
 }
