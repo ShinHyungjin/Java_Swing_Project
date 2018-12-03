@@ -1,0 +1,59 @@
+package halla.lee;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Main_Frame extends JFrame {
+	
+	JLabel name, id, Login;
+	JTextField Uname, Uid;
+	JButton login, clear;
+	
+	public Main_Frame() {
+		setTitle("¸ÞÀÎÈ­¸é");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Color color = new Color(0,0,0,0);
+		Color color2 = new Color(35,100,21,255);
+
+		Container c = getContentPane();
+		c.setBackground(color);
+		c.setLayout(null);
+		
+	    /*Login = new JLabel("LOGIN");
+		Login.setFont(new Font("ÈÞ¸Õ°íµñÃ¼",Font.BOLD,10));
+		c.add(Login);
+		name.setBounds(20, 20, 300, 300);*/
+
+		login = new JButton("¼ö°­½ÅÃ»");
+		login.setFont(new Font("ÈÞ¸Õ°íµñÃ¼",Font.BOLD,16));
+		c.add(login);
+		login.setBounds(50, 100, 120, 40);
+		
+		clear = new JButton("ÇÐÁ¡°ü¸®");
+		clear.setFont(new Font("ÈÞ¸Õ°íµñÃ¼",Font.BOLD,16));
+		c.add(clear);
+		clear.setBounds(230, 100, 120, 40);
+		
+		clear = new JButton("°øÁö»çÇ×");
+		clear.setFont(new Font("ÈÞ¸Õ°íµñÃ¼",Font.BOLD,16));
+		c.add(clear);
+		clear.setBounds(140, 220, 120, 40);
+		
+		setSize(400, 400);
+		setResizable(false);
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		Main_Frame frame = new Main_Frame();
+	}
+}
