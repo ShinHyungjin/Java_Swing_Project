@@ -1,4 +1,4 @@
-package Team4_Project;
+package halla.Shin;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ public class StudentMap {
 		ArrayList<Student> studentList = new ArrayList<Student>();
 
 		studentList.add(new Student("s1", 13, "a", "b"));
-		studentList.add(new Student("s1", 13, "a", "b"));   // ArrayList·Î ±¸ÇöÇÑ ÇĞ»ıÁ¤º¸
+		studentList.add(new Student("s1", 13, "a", "b"));   // ArrayListë¡œ êµ¬í˜„í•œ í•™ìƒì •ë³´
 		studentList.add(new Student("s3", 13, "a", "b"));
 		studentList.add(new Student("s4", 13, "a", "b"));
 		studentList.add(new Student("s5", 13, "a", "b"));
@@ -22,6 +22,6 @@ public class StudentMap {
 		}
 
 		HashMap<String, Student> studentMap = new HashMap<String, Student>();
-		studentMap.put("s1", new Student("s1", 13, "a", "b"));   // HashMapÀ¸·Î ±¸ÇöÇÑ ÇĞ»ıÁ¤º¸
+		studentMap.put("s1", new Student("s1", 13, "a", "b"));   // HashMapìœ¼ë¡œ êµ¬í˜„í•œ í•™ìƒì •ë³´
 	}
 }
