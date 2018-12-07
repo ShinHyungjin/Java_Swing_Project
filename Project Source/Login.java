@@ -145,6 +145,10 @@ public class Login extends JFrame {
 				else
 					studentMap.put(Uname.getText(), new Student(Uname.getText(), Uid.getColumns(), 
 					        Ufmajor.getText(), Utmajor.getText()));
+				Uname.setText("");
+				Uid.setText("");
+				Ufmajor.setText("");
+				Utmajor.setText("");
 				setVisible(false);
 				Main frame = new Main();
 			}
