@@ -1,4 +1,4 @@
-package halla.Shin;
+package halla.Team4_Project;
 
 public class Student {
 	private String name;
