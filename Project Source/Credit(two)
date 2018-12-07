@@ -62,10 +62,7 @@ public class Credit extends JFrame {
 		x.add(w2);
 		w2.setBounds(0, 170, 140, 50);
 		
-		w3= new JLabel("부 전공");
-		w3.setFont(new Font("휴면고딕체",Font.BOLD,25));
-		x.add(w3);
-		w3.setBounds(0,240, 140, 50);
+		
 	
 		King = new JTextField("");
 		King.setFont(new Font("휴먼고딕체",Font.BOLD,25));
@@ -79,11 +76,7 @@ public class Credit extends JFrame {
 		KingKong.setBounds(200, 170, 300, 50);
 		KingKong.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		a1 = new JTextField("");
-		a1.setFont(new Font("휴먼고딕체",Font.BOLD,25));
-		x.add(a1);
-		a1.setBounds(200,240, 300, 50);
-		a1.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		
 		e1= new JButton("필수 이수 지정 과목");
 		e1.setFont(new Font("휴면고딕체",Font.BOLD,20));
