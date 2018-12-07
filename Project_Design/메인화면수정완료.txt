@@ -1,0 +1,70 @@
+package halla.lee;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Main_Frame extends JFrame {
+	
+	JLabel name, id, Login;
+	JTextField Uname, Uid;
+	JButton login, clear;
+	
+	public Main_Frame() {
+		setTitle("메인화면");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Color color = new Color(139,188,0,0);
+		Color color2 = new Color(35,100,21,255);
+        Color a =new Color(54,88,156);
+		Container c = getContentPane();
+		getContentPane().setBackground(new java.awt.Color(196,222,255));
+		c.setLayout(null);
+		
+	    /*Login = new JLabel("LOGIN");
+		Login.setFont(new Font("휴먼고딕체",Font.BOLD,10));
+		c.add(Login);
+		name.setBounds(20, 20, 300, 300);*/
+
+		login = new JButton("수강신청");
+		login.setFont(new Font("돋움",Font.BOLD,16));
+		c.add(login);
+		login.setBounds(50, 100, 120, 40);
+		login.setBackground(a);
+		login.setForeground(color.WHITE);
+		login.setFocusPainted(false);
+		
+		clear = new JButton("학점관리");
+		clear.setFont(new Font("돋움",Font.BOLD,16));
+		c.add(clear);
+		clear.setBounds(230, 100, 120, 40);
+		clear.setBackground(a);
+		clear.setForeground(color.WHITE);
+		clear.setFocusPainted(false);
+		
+		clear = new JButton("공지사항");
+		clear.setFont(new Font("돋움",Font.BOLD,16));
+		c.add(clear);
+		clear.setBounds(140, 220, 120, 40)
+		;
+		clear.setBackground(a);
+		clear.setForeground(color.WHITE);
+		clear.setFocusPainted(false);
+		
+		setSize(400, 400);
+		setResizable(false);
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		Main_Frame frame = new Main_Frame();
+	}
+}
