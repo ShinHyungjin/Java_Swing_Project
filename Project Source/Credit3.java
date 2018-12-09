@@ -59,7 +59,7 @@ public class Credit3 extends JFrame {
 		x.add(w1);
 		w1.setBounds(000, 100, 140, 50);
 		
-		w2= new JLabel("복수전공");
+		w2= new JLabel("전공");
 		w2.setFont(new Font("휴면고딕체",Font.BOLD,25));
 		x.add(w2);
 		w2.setBounds(0, 170, 140, 50);
