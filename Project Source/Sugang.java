@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,17 +14,17 @@ import javax.swing.JMenuBar;
 import javax.swing.JTextArea;
 
 public class Sugang extends JFrame {
-	JButton f1, f2, f3, f4, f5;
+	JButton f1, f2, f3, f4, f5, f6;
 	JTextArea jt;
 	private ImageIcon im;
 	
 	public Sugang() {
 		setTitle("수강신청");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Color color = new Color(0,0,0,0);
+		Color color = new Color(196,222,255);
 		
 		Container c2 = getContentPane();
-		c2.setBackground(Color.WHITE);
+		c2.setBackground(color);
 		c2.setLayout(new FlowLayout());
 		
 		Container c = getContentPane();
@@ -41,11 +43,23 @@ public class Sugang extends JFrame {
 		f1.setContentAreaFilled(false);
 		m.add(f1);
 		
+		f1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					
+			}
+		});
+		
 		f2 = new JButton("직접입력");
 		f2.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
 		f2.setBorderPainted(false);
 		f2.setContentAreaFilled(false);
 		m.add(f2);
+		
+		f2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					
+			}
+		});
 		
 		f3 = new JButton("직접선택");
 		f3.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
@@ -53,11 +67,23 @@ public class Sugang extends JFrame {
 		f3.setContentAreaFilled(false);
 		m.add(f3);
 		
+		f3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					
+			}
+		});
+		
 		f4 = new JButton("사용자 신청 수강목록");
 		f4.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
 		f4.setBorderPainted(false);
 		f4.setContentAreaFilled(false);
 		m.add(f4);
+		
+		f4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					
+			}
+		});
 		
 		f5 = new JButton("시간표");
 		f5.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
@@ -65,9 +91,28 @@ public class Sugang extends JFrame {
 		f5.setContentAreaFilled(false);
 		m.add(f5);
 		
+		f5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					
+			}
+		});
+		
+		f6 = new JButton("뒤로가기");
+		f6.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
+		f6.setBorderPainted(false);
+		f6.setContentAreaFilled(false);
+		m.add(f6);
+		
+		f6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Main frame = new Main();
+				setVisible(false);
+			}
+		});
+		
 		c.add(m);
 		
-		setSize(730, 800);
+		setSize(770, 800);
 		setResizable(false);
 		setVisible(true);
 	}
