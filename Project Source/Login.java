@@ -23,11 +23,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 public class Login extends JFrame {
-	public JFrame frame = null;
-	public JComboBox Usel = null;
-	public JLabel name, id, fmajor,tmajor, dou, Login;
-	public JTextField Uname, Uid, Ufmajor,Utmajor;
-	public JButton login2, Ufmajorbutton, Utmajorbutton;
+	private JFrame frame = null;
+	private JComboBox Usel = null;
+	private JLabel name, id, fmajor,tmajor, dou, Login;
+	private JTextField Uname, Uid, Ufmajor,Utmajor;
+	private JButton login2, Ufmajorbutton, Utmajorbutton;
+	private String Non = "선택사항없음";
 	
 	public Login() {
 		setTitle("사용자 로그인");
@@ -150,7 +151,7 @@ public class Login extends JFrame {
 		login2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HashMap<String, Student> studentMap = new HashMap<String, Student>();
-				if(Utmajor.getText() == "선택사항없음")
+				if(Utmajor.getText().equals(Non))
 					studentMap.put(Uname.getText(), new Student(Uname.getText(), Uid.getColumns(), 
 						        Ufmajor.getText(), null));
 				else
