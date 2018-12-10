@@ -8,6 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -19,13 +20,17 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.
+io.InputStreamReader;
 
 @SuppressWarnings("serial")
 public class Credit2 extends JFrame {
 	JPanel panel;
 	static JComboBox<String> Jc, Um,Am;
 	static String [] a = {"복수전공", "단일전공","부전공"};
+	static String [] b = {"선택사항없음","경영학과", "관광경역학과","무역통상학과","광고영상미디어학과",
+			"사회복지학과","경찰행정학과","사회체육학과","뷰티헬스학과","기계자동차공학부","건축학과","토목공학과","산업경영공학과","신소재화학공학과","매카트로닉스공학과","전지전자공학과","정보통신소프트웨어학과","컴퓨터공학과"};
+	static String [] q = {"선택사항없음","경역학과","무역통상학과","광고영상미디어학과","전기전자공학과","건축학과","의료기기융합전공","벤처창업학전공","지식재산융합전공"};
 	JTextArea area;
 	String line;
 
@@ -37,6 +42,7 @@ public class Credit2 extends JFrame {
 		c.setBackground(color);
 		c.setLayout(null);
 		Jc = new JComboBox<String>(a);
+		
 		Jc.setBounds(400, 20, 80, 25);
 		c.add(Jc);
 
@@ -64,12 +70,29 @@ public class Credit2 extends JFrame {
 			}
 		});
 		
-		Um = new JComboBox<String>();
+		Um = new JComboBox<String>(b);
 		c.add(Um);
 		Um.setBounds(450, 100, 380, 40);
 		Um.setAutoscrolls(true);
-		
-		Am = new JComboBox<String>();
+		JComboBox<String> Um = new JComboBox<String>(b);
+		add(new JScrollPane(Um));
+			try {
+				BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\전공.txt"), "euc-kr"));
+				while (true) {
+					line = reader.readLine();
+					if (line == null)
+						break;
+					 area.append(line);
+	                    area.append("\n");
+					Um.addItem(line);
+				}
+				reader.close();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+	
+	
+		Am = new JComboBox<String>(q);
 		c.add(Am);
 		Am.setBounds(450, 170, 380, 40);
 		Am.setAutoscrolls(true);
@@ -108,10 +131,10 @@ public class Credit2 extends JFrame {
 		area.setBounds(0, 300, 910, 910);
 		c.add(area);
 
-		w = new JButton("버튼");
+		w = new JButton("확인");
 		w.setFont(new Font("휴먼고딕체",Font.BOLD,20));
 		c.add(w);
-		w.setBounds(010, 240, 200, 50);
+		w.setBounds(350, 240, 150, 40);
 
 		w.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
