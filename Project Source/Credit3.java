@@ -26,7 +26,7 @@ import javax.swing.border.EmptyBorder;
 public class Credit3 extends JFrame {
 	JPanel panel;
 	static JComboBox<String> Jc, Um,Am;
-	static String [] a = {"복수전공", "단일전공","부전공"};
+	static String [] a = {"부전공", "단일전공","복수전공"};
 	static String [] b = {"선택사항없음","경영학과", "관광경역학과","무역통상학과","광고영상미디어학과",
 			"사회복지학과","경찰행정학과","사회체육학과","뷰티헬스학과","기계자동차공학부","건축학과","토목공학과","산업경영공학과","신소재화학공학과","매카트로닉스공학과","전지전자공학과","정보통신소프트웨어학과","컴퓨터공학과"};
 	static String [] q = {"선택사항없음","경역학과","무역통상학과","광고영상미디어학과","전기전자공학과","건축학과","의료기기융합전공","벤처창업학전공","지식재산융합전공"};
