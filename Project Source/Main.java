@@ -53,7 +53,6 @@ public class Main extends JFrame {
 		
 		hak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
 				Credit frame = new Credit();
 			}
 		});
