@@ -2,39 +2,29 @@ package halla.Team4_Project;
 
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
-import javax.swing.text.AbstractDocument.Content;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.geom.Area;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import javax.swing.event.AncestorListener;
-import javax.swing.event.AncestorEvent;
-
+@SuppressWarnings("serial")
 public class Credit2 extends JFrame {
 	JPanel panel;
-	static JComboBox<String> Jc, Um;
+	static JComboBox<String> Jc, Um,Am;
 	static String [] a = {"복수전공", "단일전공","부전공"};
 	JTextArea area;
 	String line;
@@ -43,29 +33,31 @@ public class Credit2 extends JFrame {
 		setTitle("학점관리");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Color color = new Color(196,222,255);
-
 		Container c = getContentPane();
 		c.setBackground(color);
 		c.setLayout(null);
 		Jc = new JComboBox<String>(a);
-		Jc.setBounds(250, 20, 80, 25);
+		Jc.setBounds(400, 20, 80, 25);
 		c.add(Jc);
-		
+
 		Jc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(((String)Jc.getSelectedItem()).equals(a[0]))
 				{
 					dispose();
+					@SuppressWarnings("unused")
 					Credit2 frame = new Credit2();
 				}
 				if(((String)Jc.getSelectedItem()).equals(a[1]))
 				{
 					dispose();
+					@SuppressWarnings("unused")
 					Credit frame = new Credit();
 				}
 				if(((String)Jc.getSelectedItem()).equals(a[2]))
 				{
 					dispose();
+					@SuppressWarnings("unused")
 					Credit3 frame = new Credit3();
 				}
 				
@@ -74,8 +66,13 @@ public class Credit2 extends JFrame {
 		
 		Um = new JComboBox<String>();
 		c.add(Um);
-		Um.setBounds(340, 20, 180, 25);
+		Um.setBounds(450, 100, 380, 40);
 		Um.setAutoscrolls(true);
+		
+		Am = new JComboBox<String>();
+		c.add(Am);
+		Am.setBounds(450, 170, 380, 40);
+		Am.setAutoscrolls(true);
 		
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\전공.txt"), "euc-kr"));
@@ -100,11 +97,10 @@ public class Credit2 extends JFrame {
 		JLabel w2;
 		JTextField King;
 		JTextField KingKong;
-		JTextField a1;
-		JScrollPane parea;
 		JButton w;
 
 		area = new JTextArea();
+		@SuppressWarnings("unused")
 		JScrollPane scrollPane = new JScrollPane(area);
 		setVisible(true);
 		area.setRows(20);
@@ -147,23 +143,25 @@ public class Credit2 extends JFrame {
 		w1= new JLabel("제1전공");
 		w1.setFont(new Font("휴면고딕체",Font.BOLD,25));
 		c.add(w1);
-		w1.setBounds(10, 100, 140, 50);
+		w1.setBounds(10, 100, 140, 40);
 
 		w2= new JLabel("복수전공");
 		w2.setFont(new Font("휴면고딕체",Font.BOLD,25));
 		c.add(w2);
-		w2.setBounds(10, 170, 140, 50);
+		w2.setBounds(10, 170, 140, 40);
 
 		King = new JTextField("");
 		King.setFont(new Font("휴먼고딕체",Font.BOLD,25));
 		c.add(King);
-		King.setBounds(120, 100, 300, 50);
+		King.setEnabled(false);
+		King.setBounds(120, 100, 300, 40);
 		King.setHorizontalAlignment(SwingConstants.CENTER);
 
 		KingKong = new JTextField("");
 		KingKong.setFont(new Font("휴먼고딕체",Font.BOLD,25));
 		c.add(KingKong);
-		KingKong.setBounds(120, 170, 300, 50);
+		KingKong.setEnabled(false);
+		KingKong.setBounds(120, 170, 300, 40);
 		KingKong.setHorizontalAlignment(SwingConstants.CENTER);
 
 		setSize(900, 900);
@@ -172,6 +170,7 @@ public class Credit2 extends JFrame {
 	}
 
 	public static void main(String[] args) {
+		@SuppressWarnings("unused")
 		Credit2 frame = new Credit2();
 	}
 }
