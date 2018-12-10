@@ -9,12 +9,10 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 public class Credit extends JFrame {
@@ -37,6 +35,27 @@ public class Credit extends JFrame {
 		c.add(Jc);
 		Jc.setBounds(250, 20, 80, 25);
 		
+		Jc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(((String)Jc.getSelectedItem()).equals(a[0]))
+				{
+					dispose();
+					Credit frame = new Credit();
+				}
+				if(((String)Jc.getSelectedItem()).equals(a[1]))
+				{
+					dispose();
+					Credit2 frame = new Credit2();
+				}
+				if(((String)Jc.getSelectedItem()).equals(a[2]))
+				{
+					dispose();
+					Credit3 frame = new Credit3();
+				}
+				
+			}
+		});
+		
 		Um = new JComboBox<String>();
 		c.add(Um);
 		Um.setBounds(340, 20, 180, 25);
@@ -55,6 +74,12 @@ public class Credit extends JFrame {
 			e1.printStackTrace();
 		}
 		
+		Um.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
 		
 		Need1 = new JLabel("학점");
 		Need1.setFont(new Font("휴면고딕체",Font.BOLD,50));
@@ -69,7 +94,7 @@ public class Credit extends JFrame {
 		go2 = new JLabel("교양선택");
 		go2.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(go2);
-		go2.setBounds(90, 140, 100, 160);
+		go2.setBounds(90, 200, 100, 40);
 		
 		gi1 = new JLabel("기본필수");
 		gi1.setFont(new Font("휴먼고딕체",Font.BOLD,22));
@@ -79,7 +104,7 @@ public class Credit extends JFrame {
 		gi2 = new JLabel("기본선택");
 		gi2.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(gi2);
-		gi2.setBounds(270, 140, 100, 150);
+		gi2.setBounds(270, 200, 100, 40);
 
 		jun1 = new JLabel("전공필수");
 		jun1.setFont(new Font("휴먼고딕체",Font.BOLD,22));
@@ -89,17 +114,17 @@ public class Credit extends JFrame {
 		jun2 = new JLabel("전공선택");
 		jun2.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(jun2);
-		jun2.setBounds(450, 140, 100, 150);
+		jun2.setBounds(450, 200, 100, 40);
 
 	    hak1 = new JLabel("총 이수학점");
 		hak1.setFont(new Font("휴면고딕체",Font.BOLD,22));
 		c.add(hak1);
-		hak1.setBounds(60, 95, 250, 365);
+		hak1.setBounds(60, 260, 250, 40);
 
 		Need2 = new JLabel("필요학점");
 		Need2.setFont(new Font("휴면고딕체",Font.BOLD,40));
 		c.add(Need2);
-		Need2.setBounds(90, 110, 250, 470);
+		Need2.setBounds(90, 310, 250, 40);
 
 		go3 = new JLabel("교양필수");
 		go3.setFont(new Font("휴먼고딕체",Font.BOLD,22));
@@ -138,7 +163,7 @@ public class Credit extends JFrame {
 
 		box1 = new JTextField();
 		c.add(box1);
-		box1.setBounds(185, 145, 70, 30);
+		box1.setBounds(195, 145, 70, 30);
 
 		box2 = new JTextField();
 		c.add(box2);
@@ -150,7 +175,7 @@ public class Credit extends JFrame {
 
 		box4 = new JTextField();
 		c.add(box4);
-		box4.setBounds(185, 205, 70, 30);
+		box4.setBounds(195, 205, 70, 30);
 
 		box5 = new JTextField();
 		c.add(box5);
@@ -162,11 +187,11 @@ public class Credit extends JFrame {
 
 		box7 = new JTextField();
 		c.add(box7);
-		box7.setBounds(185, 265, 70, 30);
+		box7.setBounds(195, 265, 70, 30);
 
 		box8 = new JTextField();
 		c.add(box8);
-		box8.setBounds(185, 380, 70, 30);
+		box8.setBounds(195, 380, 70, 30);
 		box8.setEditable(false);
 
 		box9 = new JTextField();
@@ -181,7 +206,7 @@ public class Credit extends JFrame {
 
 		box11 = new JTextField();
 		c.add(box11);
-		box11.setBounds(185, 435, 70, 30);
+		box11.setBounds(195, 435, 70, 30);
 		box11.setEditable(false);
 
 		box12 = new JTextField();
@@ -196,7 +221,7 @@ public class Credit extends JFrame {
 
 		box14 = new JTextField();
 		c.add(box14);
-		box14.setBounds(185, 490, 70, 30);
+		box14.setBounds(195, 490, 70, 30);
 		box14.setEditable(false);
 
 		button = new JButton("비교하기");
