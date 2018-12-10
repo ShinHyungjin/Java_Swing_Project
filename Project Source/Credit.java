@@ -118,7 +118,7 @@ public class Credit extends JFrame {
 	    hak1 = new JLabel("총 이수학점");
 		hak1.setFont(new Font("휴면고딕체",Font.BOLD,22));
 		c.add(hak1);
-		hak1.setBounds(240, 260, 250, 40);
+		hak1.setBounds(240, 260, 130, 40);
 
 		
 		
@@ -162,7 +162,7 @@ public class Credit extends JFrame {
 		hak2 = new JLabel("총 이수학점");
 		hak2.setFont(new Font("휴면고딕체",Font.BOLD,22));
 		c.add(hak2);
-		hak2.setBounds(240, 535, 250, 40);
+		hak2.setBounds(240, 535, 150, 40);
 
 		
 		
