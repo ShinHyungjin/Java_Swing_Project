@@ -51,7 +51,7 @@ public class Credit3 extends JFrame {
 				{
 					dispose();
 					@SuppressWarnings("unused")
-					Credit2 frame = new Credit2();
+					Credit3 frame = new Credit3();
 				}
 				if(((String)Jc.getSelectedItem()).equals(a[1]))
 				{
@@ -63,7 +63,7 @@ public class Credit3 extends JFrame {
 				{
 					dispose();
 					@SuppressWarnings("unused")
-					Credit3 frame = new Credit3();
+					Credit2 frame = new Credit2();
 				}
 				
 			}
