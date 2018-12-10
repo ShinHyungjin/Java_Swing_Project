@@ -124,18 +124,6 @@ public class Credit extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		Need2 = new JLabel("필요학점");
 		Need2.setFont(new Font("휴면고딕체",Font.BOLD,40));
 		c.add(Need2);
@@ -144,37 +132,37 @@ public class Credit extends JFrame {
 		go3 = new JLabel("교양필수");
 		go3.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(go3);
-		go3.setBounds(90, 213, 100, 460);
+		go3.setBounds(90, 425, 100, 40);
 
 		go4 = new JLabel("교양선택");
 		go4.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(go4);
-		go4.setBounds(90, 213, 100, 570);
+		go4.setBounds(90, 480, 100, 40);
 
 		gi3 = new JLabel("기본필수");
 		gi3.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(gi3);
-		gi3.setBounds(270, 213, 100, 460);
+		gi3.setBounds(270, 425, 100, 40);
 
 		gi4 = new JLabel("기본선택");
 		gi4.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(gi4);
-		gi4.setBounds(270, 213, 100, 570);
+		gi4.setBounds(270, 480, 100, 40);
 
 		jun3 = new JLabel("전공필수");
 		jun3.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(jun3);
-		jun3.setBounds(450, 213, 100, 460);
+		jun3.setBounds(450, 425, 100, 40);
 
 		jun4 = new JLabel("전공선택");
 		jun4.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(jun4);
-		jun4.setBounds(450, 213, 100, 570);
+		jun4.setBounds(450, 480, 100, 40);
 
 		hak2 = new JLabel("총 이수학점");
 		hak2.setFont(new Font("휴면고딕체",Font.BOLD,22));
 		c.add(hak2);
-		hak2.setBounds(240, 163, 250, 780);
+		hak2.setBounds(240, 535, 250, 40);
 
 		
 		
