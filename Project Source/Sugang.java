@@ -1,41 +1,42 @@
-package halla.Team4_Project;
-
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
 
 public class Sugang extends JFrame {
-	private JComboBox<String> Uf, Ut;
+	private JComboBox<String> Ut;
 	private JButton f1, f2, f3, f4, f5, select;
-	private JTextArea jt;
 	private ImageIcon im;
 	private String line;
-	private String a [] = {"êµì–‘", "ì „ê³µ"}, 
-				row [] = {"ì „ê³µ", "ê³¼ëª©ì½”ë“œ", "ê³¼ëª©ëª…", "í•™ë…„", "êµ¬ë¶„", "í•™ì ", "ìˆ˜ê°•ì¸ì›", "ì‹œê°„í‘œ", "ì‹œìˆ˜", "ìˆ˜ê°•ì œí•œì¸ì›"},
-				hang [][] = new String[899][10];
-	private JTable Uhope,Uselect;
+	private String row [] = {"Àü°ø", "°ú¸ñÄÚµå", "°ú¸ñ¸í", "ÇĞ³â", "±¸ºĞ", "ÇĞÁ¡", "¼ö°­ÀÎ¿ø", "½Ã°£Ç¥", "½Ã¼ö", "¼ö°­Á¦ÇÑÀÎ¿ø"},
+				   hang [][] = new String[899][10],
+				   Uhang [][] = new String[0][10],
+				   Usu [][] = new String[0][10],
+				   input[] = new String[10];
+	private JTable Uhope,Uselect,Usugang;
+	private JScrollPane jsc, jsc2, jsc3;
+	private JButton click, hopeclick, allclick, oneclick;
+	private DefaultTableModel dm, dm2,dm3;
+	private int a,b;
+	private int c = 0;
 	
 	public Sugang() {
-		setTitle("ìˆ˜ê°•ì‹ ì²­");
+		setTitle("¼ö°­½ÅÃ»");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Color color = new Color(196,222,255);
 		
@@ -43,13 +44,8 @@ public class Sugang extends JFrame {
 		c.setBackground(color);
 		c.setLayout(null);
 		
-		Uf = new JComboBox<String>(a);
-		c.add(Uf);
-		Uf.setVisible(false);
-		Uf.setBounds(250, 62, 100, 30);
-		
 		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2018-2í•™ê¸° ì‹œê°„í‘œ.txt"), "euc-kr"));
+			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2018-2ÇĞ±â ½Ã°£Ç¥.txt"), "euc-kr"));
 			for(int i=0; i<900; i++) {
 				line = br.readLine();
 				if(line == null)
@@ -62,16 +58,144 @@ public class Sugang extends JFrame {
 			e1.printStackTrace();
 		}
 		
+		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\»ç¿ëÀÚÀúÀå¿¹ºñ¼ö°­¸ñ·Ï.txt"), "euc-kr"));
+			for(int i=0; i<200; i++) {
+				line = reader.readLine();
+				if(line == null)
+					break;
+				String [] arr = line.split("\t");
+				for(int j=0; j<arr.length; j++)
+					Uhang[i][j] = arr[j];
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 		
-		Uselect = new JTable(hang, row);
-		c.add(Uselect);
+		dm = new DefaultTableModel(hang, row);
+		Uselect = new JTable(dm);
+		jsc = new JScrollPane(Uselect);
+		c.add(jsc);
+		jsc.setVisible(false);
 		Uselect.setVisible(false);
-		Uselect.setBounds(0, 95, 675, 760);
+		jsc.setBounds(0, 60, 760, 760);
 		
+		dm2 = new DefaultTableModel(Uhang, row);
+		Uhope = new JTable(dm2);
+		jsc2 = new JScrollPane(Uhope);
+		c.add(jsc2);
+		jsc2.setBounds(0, 60, 760, 760);
+		
+		dm3 = new DefaultTableModel(Usu, row);
+		Usugang = new JTable(dm3);
+		jsc3 = new JScrollPane(Usugang);
+		c.add(jsc3);
+		jsc3.setBounds(0, 60, 760, 760);
+		
+		
+		allclick = new JButton("ÀüÃ¼½ÅÃ»");
+		c.add(allclick);
+		allclick.setBounds(250, 840, 100, 50);
+		
+		allclick.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				a = 0;
+				while(true) {
+					if(Usugang.getRowCount() > 6) {
+						JOptionPane.showMessageDialog(null, "½ÅÃ»°¡´ÉÇÑ °ú¸ñ¼ö´Â ÃÖ´ë 7°ú¸ñ ÀÔ´Ï´Ù.", "½ÅÃ»ÃÊ°ú¿À·ù", JOptionPane.WARNING_MESSAGE);
+						break;
+							}
+					else {
+						for(int i=0; i<10; i++)
+							input[i] = (String)Uselect.getValueAt(a, i);
+						dm3.addRow(input);
+						jsc3.setVisible(false);
+						dm2.removeRow(0);
+						if(Usugang.getRowCount() > 6) {
+							JOptionPane.showMessageDialog(null, "½ÅÃ»°¡´ÉÇÑ °ú¸ñ¼ö´Â ÃÖ´ë 7°ú¸ñ ÀÔ´Ï´Ù.", "½ÅÃ»ÃÊ°ú¿À·ù", JOptionPane.WARNING_MESSAGE);
+							break;
+								}
+					}
+				
+				}
+			}
+		});
+		
+		oneclick = new JButton("°³º°½ÅÃ»");
+		c.add(oneclick);
+		oneclick.setBounds(360, 840, 100, 50);
+		
+		oneclick.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				a = Uhope.getSelectedRow();
+				for(int i=0; i<10; i++)
+					input[i] = (String)Uhope.getValueAt(a, i);
+				if(Usugang.getRowCount() > 6) {
+					JOptionPane.showMessageDialog(null, "½ÅÃ»°¡´ÉÇÑ °ú¸ñ¼ö´Â ÃÖ´ë 7°ú¸ñ ÀÔ´Ï´Ù.", "½ÅÃ»ÃÊ°ú¿À·ù", JOptionPane.WARNING_MESSAGE);
+					}
+				else {
+					dm3.addRow(input);
+				jsc3.setVisible(false);
+				if(Uhope.getSelectedRow() == -1)
+					return;
+				else
+					dm.removeRow(Uhope.getSelectedRow());
+				}
+				
+			}
+		});
+		
+		click = new JButton("½ÅÃ»ÇÏ±â");
+		c.add(click);
+		click.setBounds(360, 840, 100, 50);
+		click.setVisible(false);
+		
+		click.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				a = Uselect.getSelectedRow();
+				for(int i=0; i<10; i++)
+					input[i] = (String)Uselect.getValueAt(a, i);
+				if(Usugang.getRowCount() > 6) {
+					JOptionPane.showMessageDialog(null, "½ÅÃ»°¡´ÉÇÑ °ú¸ñ¼ö´Â ÃÖ´ë 7°ú¸ñ ÀÔ´Ï´Ù.", "½ÅÃ»ÃÊ°ú¿À·ù", JOptionPane.WARNING_MESSAGE);
+					}
+				else {
+					dm3.addRow(input);
+				jsc3.setVisible(false);
+				if(Uselect.getSelectedRow() == -1)
+					return;
+				else
+					dm.removeRow(Uselect.getSelectedRow());
+				}
+			}
+		});
+		
+		hopeclick = new JButton("¿¹ºñÀúÀå");
+		c.add(hopeclick);
+		hopeclick.setBounds(250,840,100,50);
+		hopeclick.setVisible(false);
+		
+		hopeclick.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				a = Uselect.getSelectedRow();
+				for(int i=0; i<10; i++)
+					input[i] = (String)Uselect.getValueAt(a, i);
+				if(Uhope.getRowCount() > 6) {
+					JOptionPane.showMessageDialog(null, "½ÅÃ»°¡´ÉÇÑ °ú¸ñ¼ö´Â ÃÖ´ë 7°ú¸ñ ÀÔ´Ï´Ù.", "½ÅÃ»ÃÊ°ú¿À·ù", JOptionPane.WARNING_MESSAGE);
+					}
+				else {
+					dm2.addRow(input);
+				jsc2.setVisible(false);
+				if(Uselect.getSelectedRow() == -1)
+					return;
+				else
+					dm.removeRow(Uselect.getSelectedRow());
+				}
+			}
+		});
 		
 		JMenuBar m = new JMenuBar();
 		
-		f1 = new JButton("ì‚¬ìš©ì ì €ì¥ ì˜ˆë¹„ìˆ˜ê°•ëª©ë¡");
+		f1 = new JButton("»ç¿ëÀÚ ÀúÀå ¿¹ºñ¼ö°­¸ñ·Ï");
 		f1.setFont(new Font( "Malgun Gothic Bold", Font.BOLD, 15));
 		f1.setBorderPainted(false);
 		f1.setContentAreaFilled(false);
@@ -79,17 +203,22 @@ public class Sugang extends JFrame {
 		
 		f1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				jt.setText("");
-				jt.setVisible(true);
+				jsc.setVisible(false);
+				jsc2.setVisible(true);
+				click.setVisible(false);
+				hopeclick.setVisible(false);
+				allclick.setVisible(true);
+				oneclick.setVisible(true);
 					try {
-						BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\ì‚¬ìš©ìì €ì¥ì˜ˆë¹„ìˆ˜ê°•ëª©ë¡.txt"), "euc-kr"));
-						while (true) {
+						BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\»ç¿ëÀÚÀúÀå¿¹ºñ¼ö°­¸ñ·Ï.txt"), "euc-kr"));
+						for(int i=0; ; i++) {
 							line = reader.readLine();
-							if (line == null)
+							if(line == null)
 								break;
-							jt.setText(jt.getText() + line + "\n");
+							String [] arr = line.split("\t");
+							for(int j=0; j<arr.length; j++)
+								Uhang[i][j] = arr[j];
 						}
-						reader.close();
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -97,7 +226,7 @@ public class Sugang extends JFrame {
 			}
 		});
 		
-		f2 = new JButton("ì§ì ‘ì„ íƒ");
+		f2 = new JButton("Á÷Á¢¼±ÅÃ");
 		f2.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
 		f2.setBorderPainted(false);
 		f2.setContentAreaFilled(false);
@@ -105,15 +234,18 @@ public class Sugang extends JFrame {
 		
 		f2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				jt.setText("");
-				jt.setVisible(false);
+				allclick.setVisible(false);
+				oneclick.setVisible(false);
+				click.setVisible(true);
+				hopeclick.setVisible(true);
 				select.setVisible(false);
-				Uf.setVisible(true);
+				jsc2.setVisible(false);
 				Uselect.setVisible(true);
+				jsc.setVisible(true);
 			}
 		});
 		
-		f3 = new JButton("ì‚¬ìš©ì ì‹ ì²­ ìˆ˜ê°•ëª©ë¡");
+		f3 = new JButton("»ç¿ëÀÚ ½ÅÃ» ¼ö°­¸ñ·Ï");
 		f3.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
 		f3.setBorderPainted(false);
 		f3.setContentAreaFilled(false);
@@ -121,11 +253,33 @@ public class Sugang extends JFrame {
 		
 		f3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					
+				allclick.setVisible(false);
+				oneclick.setVisible(false);
+				click.setVisible(false);
+				hopeclick.setVisible(false);
+				select.setVisible(false);
+				Uselect.setVisible(false);
+				jsc.setVisible(false);
+				jsc2.setVisible(false);
+				jsc3.setVisible(true);
+				try {
+					BufferedReader reader2 = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\»ç¿ëÀÚ½ÅÃ»¼ö°­¸ñ·Ï.txt"), "euc-kr"));
+					for(int i=0; i<200; i++) {
+						line = reader2.readLine();
+						if(line == null)
+							break;
+						String [] arr = line.split("\t");
+						for(int j=0; j<arr.length; j++)
+							Usu[i][j] = arr[j];
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		
-		f4 = new JButton("ì‹œê°„í‘œ");
+		f4 = new JButton("½Ã°£Ç¥");
 		f4.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
 		f4.setBorderPainted(false);
 		f4.setContentAreaFilled(false);
@@ -137,7 +291,7 @@ public class Sugang extends JFrame {
 			}
 		});
 		
-		f5 = new JButton("ë’¤ë¡œê°€ê¸°");
+		f5 = new JButton("µÚ·Î°¡±â");
 		f5.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
 		f5.setBorderPainted(false);
 		f5.setContentAreaFilled(false);
@@ -151,22 +305,15 @@ public class Sugang extends JFrame {
 		});
 		
 		c.add(m);
-		m.setBounds(5, 5, 670, 50);
+		m.setBounds(5, 5, 750, 50);
 		
-		jt = new JTextArea();
-		c.add(jt);
-		jt.setVisible(false);
-		jt.setEditable(false);
-		jt.setBounds(0,60,670,700);
-		jt.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
-		
-		select = new JButton("ì „ì²´ì‹ ì²­");
+		select = new JButton("ÀüÃ¼½ÅÃ»");
 		c.add(select);
 		select.setVisible(false);
 		select.setBounds(240,770,100,50);
 		select.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
 		
-		setSize(680, 860);
+		setSize(765, 950);
 		setResizable(false);
 		setVisible(true);
 	}
