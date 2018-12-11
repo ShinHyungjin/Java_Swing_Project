@@ -17,9 +17,11 @@ public class Credit extends JFrame {
 	JLabel Need1, Need2, go1, go2, go3, go4, gi1, gi2, gi3, gi4, jun1, jun2, jun3, jun4, hak1, hak2;
 	JTextField box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12, box13, box14;
 	JButton button, select;
-	static JComboBox Jc, Um;
+	static JComboBox Jc, Um, year;
 	static String [] a = {"단일전공", "복수전공", "부전공"};
+	static String [] b = {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"};
 	String line;
+	int sum[] = new int[7];
 	
 	public Credit() {
 		setTitle("학점관리");
@@ -32,7 +34,7 @@ public class Credit extends JFrame {
 
 		Jc = new JComboBox<String>(a);
 		c.add(Jc);
-		Jc.setBounds(235, 20, 80, 25);
+		Jc.setBounds(170, 20, 80, 25);
 		
 		Jc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -55,9 +57,13 @@ public class Credit extends JFrame {
 			}
 		});
 		
+		year = new JComboBox<String>(b);
+		c.add(year);
+		year.setBounds(450, 20, 70, 25);
+		
 		Um = new JComboBox<String>();
 		c.add(Um);
-		Um.setBounds(325, 20, 180, 25);
+		Um.setBounds(260, 20, 180, 25);
 		Um.setAutoscrolls(true);
 		
 		try {
@@ -79,11 +85,10 @@ public class Credit extends JFrame {
 			}
 		});
 		
-		
 		Need1 = new JLabel("학점");
 		Need1.setFont(new Font("휴면고딕체",Font.BOLD,50));
 		c.add(Need1);
-		Need1.setBounds(310, 80, 250, 40);
+		Need1.setBounds(310, 80, 250, 50);
 
 		go1 = new JLabel("교양필수");
 		go1.setFont(new Font("휴먼고딕체",Font.BOLD,22));
@@ -119,10 +124,6 @@ public class Credit extends JFrame {
 		hak1.setFont(new Font("휴면고딕체",Font.BOLD,22));
 		c.add(hak1);
 		hak1.setBounds(240, 260, 130, 40);
-
-		
-		
-		
 		
 		Need2 = new JLabel("필요학점");
 		Need2.setFont(new Font("휴면고딕체",Font.BOLD,40));
@@ -163,10 +164,6 @@ public class Credit extends JFrame {
 		hak2.setFont(new Font("휴면고딕체",Font.BOLD,22));
 		c.add(hak2);
 		hak2.setBounds(240, 535, 150, 40);
-
-		
-		
-		
 		
 		box1 = new JTextField();
 		c.add(box1);
@@ -195,11 +192,6 @@ public class Credit extends JFrame {
 		box7 = new JTextField();
 		c.add(box7);
 		box7.setBounds(365, 265, 70, 30);
-
-		
-		
-		
-		
 		
 		box8 = new JTextField();
 		c.add(box8);
@@ -243,6 +235,117 @@ public class Credit extends JFrame {
 		button.setBackground(color2);
 		button.setForeground(Color.WHITE);
 		
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(year.getSelectedItem().equals(b[0]))
+				{
+					try {
+						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2010이수학점.txt"), "euc-kr"));
+						while (true) {
+							line = br.readLine();
+							if (line == null)
+								break;
+								String[] arr = line.split("\t");
+								if(arr[0].equals(Jc.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								{
+									sum [0]  = Integer.parseInt(arr[1]) - Integer.parseInt(box1.getText()); 
+									sum [1]  = Integer.parseInt(arr[3]) - Integer.parseInt(box2.getText()); 
+									sum [2]  = Integer.parseInt(arr[5]) - Integer.parseInt(box3.getText()); 
+									sum [3]  = Integer.parseInt(arr[2]) - Integer.parseInt(box4.getText()); 
+									sum [4]  = Integer.parseInt(arr[4]) - Integer.parseInt(box5.getText()); 
+									sum [5]  = Integer.parseInt(arr[6]) - Integer.parseInt(box6.getText()); 
+									sum [6]  = 140 - Integer.parseInt(box7.getText());  
+									box8.setText(String.valueOf(sum[0]));
+									box9.setText(String.valueOf(sum[1]));
+									box10.setText(String.valueOf(sum[2]));
+									box11.setText(String.valueOf(sum[3]));
+									box12.setText(String.valueOf(sum[4]));
+									box13.setText(String.valueOf(sum[5]));
+									box14.setText(String.valueOf(sum[6]));
+								}
+							} 
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
+				
+				else if(year.getSelectedItem().equals(b[1]))
+				{
+					try {
+						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2011이수학점.txt"), "euc-kr"));
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					
+				}
+				else if(year.getSelectedItem().equals(b[2]))
+				{
+					try {
+						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2012이수학점.txt"), "euc-kr"));
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					
+				}
+				else if(year.getSelectedItem().equals(b[3]))
+				{
+					try {
+						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2013이수학점.txt"), "euc-kr"));
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					
+				}
+				else if(year.getSelectedItem().equals(b[4]))
+				{
+					try {
+						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2014이수학점.txt"), "euc-kr"));
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					
+				}
+				else if(year.getSelectedItem().equals(b[5]))
+				{
+					try {
+						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2015이수학점.txt"), "euc-kr"));
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					
+				}
+				else if(year.getSelectedItem().equals(b[6]))
+				{
+					try {
+						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2016이수학점.txt"), "euc-kr"));
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					
+				}
+				else if(year.getSelectedItem().equals(b[7]))
+				{
+					try {
+						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2017이수학점.txt"), "euc-kr"));
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					
+				}
+				else if(year.getSelectedItem().equals(b[8]))
+				{
+					try {
+						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2018이수학점.txt"), "euc-kr"));
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					
+				}
+				
+					}	
+				
+	});
+		
 		select = new JButton("종료하기");
 		select.setFont(new Font("휴면고딕체", Font.BOLD,17));
 		c.add(select);
@@ -255,7 +358,6 @@ public class Credit extends JFrame {
 				dispose();
 			}
 		});
-	
 		setSize(730, 800);
 		setVisible(true);
 		setResizable(false);
