@@ -25,9 +25,9 @@ import javax.swing.JTextField;
 public class Login extends JFrame {
 	private JFrame frame = null;
 	private JComboBox Usel = null;
-	private JLabel name, id, fmajor,tmajor, dou, Login;
-	private JTextField Uname, Uid, Ufmajor,Utmajor;
-	private JButton login2, Ufmajorbutton, Utmajorbutton;
+	private JLabel name, id, Login;
+	private JTextField Uname, Uid;
+	private JButton login2;
 	private String Non = "선택사항없음";
 	
 	public Login() {
@@ -83,186 +83,28 @@ public class Login extends JFrame {
 		public void keyReleased(KeyEvent e) {}
 		public void keyPressed(KeyEvent e) {}
 	});
-		
-		fmajor = new JLabel("제1전공");
-		fmajor.setFont(new Font("휴먼고딕체",Font.BOLD,17));
-		c.add(fmajor);
-		fmajor.setBounds(50, 205, 100, 40);
-		
-		Ufmajor = new JTextField(25);
-		Ufmajor.setFont(new Font("휴먼고딕체",Font.BOLD,15));
-		c.add(Ufmajor);
-		Ufmajor.setBounds(160, 210, 200, 30);
-		Ufmajor.setEnabled(false);
-		
-		Ufmajorbutton = new JButton("전공선택");
-		Ufmajorbutton.setFont(new Font("휴먼고딕체",Font.BOLD,17));
-		c.add(Ufmajorbutton);
-		Ufmajorbutton.setBounds(370, 210, 110, 30);
-		Ufmajorbutton.setFocusPainted(false);
-		Ufmajorbutton.setBackground(color3);
-		Ufmajorbutton.setForeground(color.WHITE);
-		
-		Ufmajorbutton.addActionListener(new ActionListener() {    // submit 버튼 클릭시 동작하는 리스너 (새로운 프레임 생성(dialog))
-			public void actionPerformed(ActionEvent e) {
-				select dialog = new select(frame, Ufmajor, Utmajor);
-			}
-		});
-		
-		tmajor = new JLabel("복수/부전공");
-		tmajor.setFont(new Font("휴먼고딕체",Font.BOLD,17));
-		c.add(tmajor);
-		tmajor.setBounds(50, 265, 100, 40);
-		
-		Utmajor = new JTextField(25);
-		Utmajor.setFont(new Font("휴먼고딕체",Font.BOLD,15));
-		c.add(Utmajor);
-		Utmajor.setBounds(160, 270, 200, 30);
-		Utmajor.setEnabled(false);
-		
-		Utmajorbutton = new JButton("전공선택");
-		Utmajorbutton.setFont(new Font("휴먼고딕체",Font.BOLD,17));
-		c.add(Utmajorbutton);
-		Utmajorbutton.setBounds(370, 270, 110, 30);
-		Utmajorbutton.setFocusPainted(false);
-		Utmajorbutton.setBackground(color3);
-		Utmajorbutton.setForeground(color.WHITE);
-		
-		
-		Utmajorbutton.addActionListener(new ActionListener() {    // submit 버튼 클릭시 동작하는 리스너 (새로운 프레임 생성(dialog))
-			public void actionPerformed(ActionEvent e) {
-				select2 dialog2 = new select2(frame, Utmajor, Ufmajor);
-			}
-		});
-		
-		dou = new JLabel("(복수/부전공자는 제1전공,복수/부전공을 선택하세요)");
-		dou.setFont(new Font("휴먼고딕체",Font.ITALIC,15));
-		c.add(dou);
-		dou.setBounds(60, 310, 400, 30);
-		
 		login2 = new JButton("로그인");
 		login2.setFont(new Font("휴먼고딕체",Font.BOLD,18));
 		c.add(login2);
-		login2.setBounds(225, 380, 100, 40);
+		login2.setBounds(180, 220, 100, 40);
 		login2.setFocusPainted(false);
 		login2.setBackground(color3);
 		login2.setForeground(color.WHITE);
 		
 		login2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HashMap<String, Student> studentMap = new HashMap<String, Student>();
-				if(Utmajor.getText().equals(Non))
-					studentMap.put(Uname.getText(), new Student(Uname.getText(), Uid.getColumns(), 
-						        Ufmajor.getText(), null));
-				else
-					studentMap.put(Uname.getText(), new Student(Uname.getText(), Uid.getColumns(), 
-					        Ufmajor.getText(), Utmajor.getText()));
 				Uname.setText("");
 				Uid.setText("");
-				Ufmajor.setText("");
-				Utmajor.setText("");
 				setVisible(false);
 				Main frame = new Main();
 			}
 		});
 		
-		setSize(550, 500);
+		setSize(450, 340);
 		setResizable(false);
 		setVisible(true);
 	}
 	public static void main(String[] args) {
 		Login frame = new Login();
-	}
-}
-class select extends JDialog {
-	JTextField Ufmajor2,Utmajor2 = null;
-	JComboBox<String> Usel2 = null;
-	public select(JFrame frame, JTextField Ufmajor, JTextField Utmajor) {
-		super(frame, true); // true 이면 이전 프레임은 사용 못하게함 (=독점) / false 이면 사용가능
-
-		setTitle("전공선택...");
-		setLayout(new FlowLayout());
-		String line;
-
-		JComboBox<String> Usel = new JComboBox<String>();
-		add(new JScrollPane(Usel));
-			try {
-				BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\전공.txt"), "euc-kr"));
-				while (true) {
-					line = reader.readLine();
-					if (line == null)
-						break;
-					Usel.addItem(line);
-				}
-				reader.close();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		JButton Us = new JButton("선택하기");
-		add(Us);
-		Ufmajor2 = Ufmajor;
-		Utmajor2 = Utmajor;
-		Usel2 = Usel;
-		Us.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(((String)Usel2.getSelectedItem()).equals(Utmajor2.getText())) {
-					JOptionPane.showMessageDialog(null, "복수전공/부전공과 학과가 같습니다.\n다시 선택하세요.", "전공선택오류", JOptionPane.WARNING_MESSAGE);
-					setVisible(false);
-					dispose();
-					}
-					else
-				Ufmajor2.setText((String)Usel2.getSelectedItem());
-				setVisible(false);
-				dispose();
-			}
-		});
-		setSize(200, 150);
-		setVisible(true);
-	}
-}
-class select2 extends JDialog {
-	JTextField Ufmajor2,Utmajor2 = null;
-	JComboBox<String> Usel2 = null;
-	public select2(JFrame frame, JTextField Utmajor, JTextField Ufmajor) {
-		super(frame, true); // true 이면 이전 프레임은 사용 못하게함 (=독점) / false 이면 사용가능
-
-		setTitle("전공선택...");
-		setLayout(new FlowLayout());
-		String line;
-
-		JComboBox<String> Usel = new JComboBox<String>();
-		add(new JScrollPane(Usel));
-			try {
-				BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\전공2.txt"), "euc-kr"));
-				while (true) {
-					line = reader.readLine();
-					if (line == null)
-						break;
-					Usel.addItem(line);
-				}
-				reader.close();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		JButton Us = new JButton("선택하기");
-		add(Us);
-		Ufmajor2 = Ufmajor;
-		Utmajor2 = Utmajor;
-		Usel2 = Usel;
-		Us.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(((String)Usel2.getSelectedItem()).equals(Ufmajor2.getText())) {
-				JOptionPane.showMessageDialog(null, "제1전공과 학과가 같습니다.\n다시 선택하세요.", "전공선택오류", JOptionPane.WARNING_MESSAGE);
-				setVisible(false);
-				dispose();
-				}
-				else
-				Utmajor2.setText((String)Usel2.getSelectedItem());
-				setVisible(false);
-				dispose();
-			}
-		});
-		setSize(200, 150);
-		setVisible(true);
 	}
 }
