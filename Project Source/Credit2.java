@@ -38,12 +38,14 @@ public class Credit2 extends JFrame {
 		setTitle("학점관리");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Color color = new Color(196,222,255);
+		Color color1 = new Color(54,88,156);
+		Color color2 = new Color(18,52,120);
 		Container c = getContentPane();
 		c.setBackground(color);
 		c.setLayout(null);
 		Jc = new JComboBox<String>(a);
 		
-		Jc.setBounds(400, 20, 80, 25);
+		Jc.setBounds(330, 20, 80, 25);
 		c.add(Jc);
 
 		Jc.addActionListener(new ActionListener() {
@@ -72,7 +74,7 @@ public class Credit2 extends JFrame {
 		
 		Um = new JComboBox<String>();
 		c.add(Um);
-		Um.setBounds(450, 100, 380, 40);
+		Um.setBounds(400, 100, 300, 40);
 		Um.setAutoscrolls(true);
 			try {
 				BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\전공.txt"), "euc-kr"));
@@ -90,7 +92,7 @@ public class Credit2 extends JFrame {
 	
 		Am = new JComboBox<String>();
 		c.add(Am);
-		Am.setBounds(450, 170, 380, 40);
+		Am.setBounds(400, 170, 300, 40);
 		Am.setAutoscrolls(true);
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\복수전공가능.txt"), "euc-kr"));
@@ -117,7 +119,7 @@ public class Credit2 extends JFrame {
 		King.setFont(new Font("휴먼고딕체",Font.BOLD,25));
 		c.add(King);
 		King.setEnabled(false);
-		King.setBounds(120, 100, 300, 40);
+		King.setBounds(120, 100, 250, 40);
 		King.setHorizontalAlignment(SwingConstants.CENTER);
 
 
@@ -125,7 +127,7 @@ public class Credit2 extends JFrame {
 		KingKong.setFont(new Font("휴먼고딕체",Font.BOLD,25));
 		c.add(KingKong);
 		KingKong.setEnabled(false);
-		KingKong.setBounds(120, 170, 300, 40);
+		KingKong.setBounds(120, 170, 250, 40);
 		KingKong.setHorizontalAlignment(SwingConstants.CENTER);
 
 		area = new JTextArea();
@@ -134,15 +136,18 @@ public class Credit2 extends JFrame {
 		setVisible(true);
 		area.setRows(20);
 		area.setColumns(30);
-		area.setBounds(0, 300, 910, 910);
-		area.setFont(new Font("휴먼고딕체",Font.BOLD,25));
+		area.setBounds(59, 300, 600,400);
+		area.setFont(new Font("휴먼고딕체",Font.BOLD,18));
 		c.add(area);
+		area.setForeground(color2);
 
 		w = new JButton("확인");
 		w.setFont(new Font("휴먼고딕체",Font.BOLD,20));
 		c.add(w);
 		add(w);
-		w.setBounds(350, 240, 150, 40);
+		w.setBounds(300, 240, 140, 40);
+		w.setBackground(color1);
+		w.setForeground(Color.WHITE);
 
 		w.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -185,7 +190,7 @@ public class Credit2 extends JFrame {
 		w2.setBounds(10, 170, 140, 40);
 
 		
-		setSize(900, 900);
+		setSize(730, 800);
 		setResizable(false);
 		setVisible(true);
 	}
