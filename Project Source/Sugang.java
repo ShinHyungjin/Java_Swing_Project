@@ -20,10 +20,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class Sugang extends JFrame {
 	private JComboBox<String> Ut;
-	private JButton f1, f2, f3, f4, f5, select;
+	private JButton f1, f2, f3, f4, select;
 	private ImageIcon im;
 	private String line;
-	private String row [] = {"Àü°ø", "°ú¸ñÄÚµå", "°ú¸ñ¸í", "ÇĞ³â", "±¸ºĞ", "ÇĞÁ¡", "¼ö°­ÀÎ¿ø", "½Ã°£Ç¥", "½Ã¼ö", "¼ö°­Á¦ÇÑÀÎ¿ø"},
+	private String row [] = {"ì „ê³µ", "ê³¼ëª©ì½”ë“œ", "ê³¼ëª©ëª…", "í•™ë…„", "êµ¬ë¶„", "í•™ì ", "ìˆ˜ê°•ì¸ì›", "ì‹œê°„í‘œ", "ì‹œìˆ˜", "ìˆ˜ê°•ì œí•œì¸ì›"},
 				   hang [][] = new String[899][10],
 				   Uhang [][] = new String[0][10],
 				   Usu [][] = new String[0][10],
@@ -36,7 +36,7 @@ public class Sugang extends JFrame {
 	private int c = 0;
 	
 	public Sugang() {
-		setTitle("¼ö°­½ÅÃ»");
+		setTitle("ìˆ˜ê°•ì‹ ì²­");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Color color = new Color(196,222,255);
 		
@@ -45,7 +45,7 @@ public class Sugang extends JFrame {
 		c.setLayout(null);
 		
 		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2018-2ÇĞ±â ½Ã°£Ç¥.txt"), "euc-kr"));
+			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2018-2í•™ê¸° ì‹œê°„í‘œ.txt"), "euc-kr"));
 			for(int i=0; i<900; i++) {
 				line = br.readLine();
 				if(line == null)
@@ -59,7 +59,7 @@ public class Sugang extends JFrame {
 		}
 		
 		try {
-			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\»ç¿ëÀÚÀúÀå¿¹ºñ¼ö°­¸ñ·Ï.txt"), "euc-kr"));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\ì‚¬ìš©ìì €ì¥ì˜ˆë¹„ìˆ˜ê°•ëª©ë¡.txt"), "euc-kr"));
 			for(int i=0; i<200; i++) {
 				line = reader.readLine();
 				if(line == null)
@@ -93,7 +93,7 @@ public class Sugang extends JFrame {
 		jsc3.setBounds(0, 60, 760, 760);
 		
 		
-		allclick = new JButton("ÀüÃ¼½ÅÃ»");
+		allclick = new JButton("ì „ì²´ì‹ ì²­");
 		c.add(allclick);
 		allclick.setBounds(250, 840, 100, 50);
 		
@@ -102,7 +102,7 @@ public class Sugang extends JFrame {
 				a = 0;
 				while(true) {
 					if(Usugang.getRowCount() > 6) {
-						JOptionPane.showMessageDialog(null, "½ÅÃ»°¡´ÉÇÑ °ú¸ñ¼ö´Â ÃÖ´ë 7°ú¸ñ ÀÔ´Ï´Ù.", "½ÅÃ»ÃÊ°ú¿À·ù", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "ì‹ ì²­ê°€ëŠ¥í•œ ê³¼ëª©ìˆ˜ëŠ” ìµœëŒ€ 7ê³¼ëª© ì…ë‹ˆë‹¤.", "ì‹ ì²­ì´ˆê³¼ì˜¤ë¥˜", JOptionPane.WARNING_MESSAGE);
 						break;
 							}
 					else {
@@ -112,7 +112,7 @@ public class Sugang extends JFrame {
 						jsc3.setVisible(false);
 						dm2.removeRow(0);
 						if(Usugang.getRowCount() > 6) {
-							JOptionPane.showMessageDialog(null, "½ÅÃ»°¡´ÉÇÑ °ú¸ñ¼ö´Â ÃÖ´ë 7°ú¸ñ ÀÔ´Ï´Ù.", "½ÅÃ»ÃÊ°ú¿À·ù", JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(null, "ì‹ ì²­ê°€ëŠ¥í•œ ê³¼ëª©ìˆ˜ëŠ” ìµœëŒ€ 7ê³¼ëª© ì…ë‹ˆë‹¤.", "ì‹ ì²­ì´ˆê³¼ì˜¤ë¥˜", JOptionPane.WARNING_MESSAGE);
 							break;
 								}
 					}
@@ -121,7 +121,7 @@ public class Sugang extends JFrame {
 			}
 		});
 		
-		oneclick = new JButton("°³º°½ÅÃ»");
+		oneclick = new JButton("ê°œë³„ì‹ ì²­");
 		c.add(oneclick);
 		oneclick.setBounds(360, 840, 100, 50);
 		
@@ -131,7 +131,7 @@ public class Sugang extends JFrame {
 				for(int i=0; i<10; i++)
 					input[i] = (String)Uhope.getValueAt(a, i);
 				if(Usugang.getRowCount() > 6) {
-					JOptionPane.showMessageDialog(null, "½ÅÃ»°¡´ÉÇÑ °ú¸ñ¼ö´Â ÃÖ´ë 7°ú¸ñ ÀÔ´Ï´Ù.", "½ÅÃ»ÃÊ°ú¿À·ù", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "ì‹ ì²­ê°€ëŠ¥í•œ ê³¼ëª©ìˆ˜ëŠ” ìµœëŒ€ 7ê³¼ëª© ì…ë‹ˆë‹¤.", "ì‹ ì²­ì´ˆê³¼ì˜¤ë¥˜", JOptionPane.WARNING_MESSAGE);
 					}
 				else {
 					dm3.addRow(input);
@@ -145,7 +145,7 @@ public class Sugang extends JFrame {
 			}
 		});
 		
-		click = new JButton("½ÅÃ»ÇÏ±â");
+		click = new JButton("ì‹ ì²­í•˜ê¸°");
 		c.add(click);
 		click.setBounds(360, 840, 100, 50);
 		click.setVisible(false);
@@ -156,7 +156,7 @@ public class Sugang extends JFrame {
 				for(int i=0; i<10; i++)
 					input[i] = (String)Uselect.getValueAt(a, i);
 				if(Usugang.getRowCount() > 6) {
-					JOptionPane.showMessageDialog(null, "½ÅÃ»°¡´ÉÇÑ °ú¸ñ¼ö´Â ÃÖ´ë 7°ú¸ñ ÀÔ´Ï´Ù.", "½ÅÃ»ÃÊ°ú¿À·ù", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "ì‹ ì²­ê°€ëŠ¥í•œ ê³¼ëª©ìˆ˜ëŠ” ìµœëŒ€ 7ê³¼ëª© ì…ë‹ˆë‹¤.", "ì‹ ì²­ì´ˆê³¼ì˜¤ë¥˜", JOptionPane.WARNING_MESSAGE);
 					}
 				else {
 					dm3.addRow(input);
@@ -169,7 +169,7 @@ public class Sugang extends JFrame {
 			}
 		});
 		
-		hopeclick = new JButton("¿¹ºñÀúÀå");
+		hopeclick = new JButton("ì˜ˆë¹„ì €ì¥");
 		c.add(hopeclick);
 		hopeclick.setBounds(250,840,100,50);
 		hopeclick.setVisible(false);
@@ -180,7 +180,7 @@ public class Sugang extends JFrame {
 				for(int i=0; i<10; i++)
 					input[i] = (String)Uselect.getValueAt(a, i);
 				if(Uhope.getRowCount() > 6) {
-					JOptionPane.showMessageDialog(null, "½ÅÃ»°¡´ÉÇÑ °ú¸ñ¼ö´Â ÃÖ´ë 7°ú¸ñ ÀÔ´Ï´Ù.", "½ÅÃ»ÃÊ°ú¿À·ù", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "ì‹ ì²­ê°€ëŠ¥í•œ ê³¼ëª©ìˆ˜ëŠ” ìµœëŒ€ 7ê³¼ëª© ì…ë‹ˆë‹¤.", "ì‹ ì²­ì´ˆê³¼ì˜¤ë¥˜", JOptionPane.WARNING_MESSAGE);
 					}
 				else {
 					dm2.addRow(input);
@@ -195,7 +195,7 @@ public class Sugang extends JFrame {
 		
 		JMenuBar m = new JMenuBar();
 		
-		f1 = new JButton("»ç¿ëÀÚ ÀúÀå ¿¹ºñ¼ö°­¸ñ·Ï");
+		f1 = new JButton("ì‚¬ìš©ì ì €ì¥ ì˜ˆë¹„ìˆ˜ê°•ëª©ë¡");
 		f1.setFont(new Font( "Malgun Gothic Bold", Font.BOLD, 15));
 		f1.setBorderPainted(false);
 		f1.setContentAreaFilled(false);
@@ -210,7 +210,7 @@ public class Sugang extends JFrame {
 				allclick.setVisible(true);
 				oneclick.setVisible(true);
 					try {
-						BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\»ç¿ëÀÚÀúÀå¿¹ºñ¼ö°­¸ñ·Ï.txt"), "euc-kr"));
+						BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\ì‚¬ìš©ìì €ì¥ì˜ˆë¹„ìˆ˜ê°•ëª©ë¡.txt"), "euc-kr"));
 						for(int i=0; ; i++) {
 							line = reader.readLine();
 							if(line == null)
@@ -226,7 +226,7 @@ public class Sugang extends JFrame {
 			}
 		});
 		
-		f2 = new JButton("Á÷Á¢¼±ÅÃ");
+		f2 = new JButton("ì§ì ‘ì„ íƒ");
 		f2.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
 		f2.setBorderPainted(false);
 		f2.setContentAreaFilled(false);
@@ -245,7 +245,7 @@ public class Sugang extends JFrame {
 			}
 		});
 		
-		f3 = new JButton("»ç¿ëÀÚ ½ÅÃ» ¼ö°­¸ñ·Ï");
+		f3 = new JButton("ì‚¬ìš©ì ì‹ ì²­ ìˆ˜ê°•ëª©ë¡");
 		f3.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
 		f3.setBorderPainted(false);
 		f3.setContentAreaFilled(false);
@@ -263,7 +263,7 @@ public class Sugang extends JFrame {
 				jsc2.setVisible(false);
 				jsc3.setVisible(true);
 				try {
-					BufferedReader reader2 = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\»ç¿ëÀÚ½ÅÃ»¼ö°­¸ñ·Ï.txt"), "euc-kr"));
+					BufferedReader reader2 = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\ì‚¬ìš©ìì‹ ì²­ìˆ˜ê°•ëª©ë¡.txt"), "euc-kr"));
 					for(int i=0; i<200; i++) {
 						line = reader2.readLine();
 						if(line == null)
@@ -279,7 +279,7 @@ public class Sugang extends JFrame {
 			}
 		});
 		
-		f4 = new JButton("½Ã°£Ç¥");
+		f4 = new JButton("ë’¤ë¡œê°€ê¸°");
 		f4.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
 		f4.setBorderPainted(false);
 		f4.setContentAreaFilled(false);
@@ -287,27 +287,15 @@ public class Sugang extends JFrame {
 		
 		f4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					
-			}
-		});
-		
-		f5 = new JButton("µÚ·Î°¡±â");
-		f5.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
-		f5.setBorderPainted(false);
-		f5.setContentAreaFilled(false);
-		m.add(f5);
-		
-		f5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 				Main frame = new Main();
 				setVisible(false);
 			}
 		});
 		
 		c.add(m);
-		m.setBounds(5, 5, 750, 50);
+		m.setBounds(80, 5, 600, 50);
 		
-		select = new JButton("ÀüÃ¼½ÅÃ»");
+		select = new JButton("ì „ì²´ì‹ ì²­");
 		c.add(select);
 		select.setVisible(false);
 		select.setBounds(240,770,100,50);
