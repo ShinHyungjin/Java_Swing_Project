@@ -1,4 +1,4 @@
-package halla.Team4_Project;
+package lisonong;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -38,6 +38,7 @@ public class Credit2 extends JFrame {
 		setTitle("학점관리");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Color color = new Color(196,222,255);
+		 Color color2 = new Color(54,88,156);
 		Container c = getContentPane();
 		c.setBackground(color);
 		c.setLayout(null);
@@ -135,6 +136,8 @@ public class Credit2 extends JFrame {
 		w.setFont(new Font("휴먼고딕체",Font.BOLD,20));
 		c.add(w);
 		w.setBounds(350, 240, 150, 40);
+		w.setBackground(color2);
+		w.setForeground(Color.WHITE);
 
 		w.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
