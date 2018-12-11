@@ -1,4 +1,4 @@
-package halla.Shin;
+package lisonong;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -44,7 +44,7 @@ public class Login extends JFrame {
 	    Login = new JLabel("LOGIN");
 		Login.setFont(new Font("휴먼고딕체",Font.BOLD,40));
 		c.add(Login);
-		Login.setBounds(200, 30, 250, 40);
+		Login.setBounds(160, 30, 250, 40);
 
 		name = new JLabel("이름");
 		name.setFont(new Font("휴먼고딕체",Font.BOLD,17));
@@ -86,7 +86,7 @@ public class Login extends JFrame {
 		login2 = new JButton("로그인");
 		login2.setFont(new Font("휴먼고딕체",Font.BOLD,18));
 		c.add(login2);
-		login2.setBounds(180, 220, 100, 40);
+		login2.setBounds(160, 220, 100, 40);
 		login2.setFocusPainted(false);
 		login2.setBackground(color3);
 		login2.setForeground(color.WHITE);
