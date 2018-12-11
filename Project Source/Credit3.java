@@ -1,5 +1,4 @@
 package halla2018;
-
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -38,6 +37,7 @@ public class Credit3 extends JFrame {
 		setTitle("학점관리");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Color color = new Color(196,222,255);
+		 Color color2 = new Color(54,88,156);
 		Container c = getContentPane();
 		c.setBackground(color);
 		c.setLayout(null);
@@ -134,7 +134,7 @@ public class Credit3 extends JFrame {
 		setVisible(true);
 		area.setRows(20);
 		area.setColumns(30);
-		area.setBounds(0, 300, 910, 910);
+		area.setBounds(45, 360, 800, 400);
 		area.setFont(new Font("휴먼고딕체",Font.BOLD,25));
 		c.add(area);
 
@@ -142,8 +142,10 @@ public class Credit3 extends JFrame {
 		w.setFont(new Font("휴먼고딕체",Font.BOLD,20));
 		c.add(w);
 		add(w);
-		w.setBounds(350, 240, 150, 40);
-
+		w.setBounds(370, 260, 150, 40);
+		w.setForeground(Color.WHITE);
+        w.setBackground(color2);
+        w.setFocusPainted(false);
 		w.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(((String)Um.getSelectedItem()).equals(Am.getSelectedItem())) {
