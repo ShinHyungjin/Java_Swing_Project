@@ -1,3 +1,5 @@
+package Lisonong.Lisonong;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -15,6 +17,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 public class Sugang extends JFrame {
@@ -38,6 +41,7 @@ public class Sugang extends JFrame {
 		setTitle("수강신청");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Color color = new Color(196,222,255);
+		Color color1 = new Color(54,88,156);
 		
 		Container c = getContentPane();
 		c.setBackground(color);
@@ -78,23 +82,34 @@ public class Sugang extends JFrame {
 		jsc.setVisible(false);
 		Uselect.setVisible(false);
 		jsc.setBounds(0, 60, 760, 760);
+		Uselect.getColumn(row[0]).setPreferredWidth(170);
+		Uselect.getColumn(row[1]).setPreferredWidth(130);
+		Uselect.getColumn(row[2]).setPreferredWidth(250);
 		
 		dm2 = new DefaultTableModel(Uhang, row);
 		Uhope = new JTable(dm2);
 		jsc2 = new JScrollPane(Uhope);
 		c.add(jsc2);
 		jsc2.setBounds(0, 60, 760, 760);
+		Uhope.getColumn(row[0]).setPreferredWidth(170);
+		Uhope.getColumn(row[1]).setPreferredWidth(130);
+		Uhope.getColumn(row[2]).setPreferredWidth(250);
 		
 		dm3 = new DefaultTableModel(Usu, row);
 		Usugang = new JTable(dm3);
 		jsc3 = new JScrollPane(Usugang);
 		c.add(jsc3);
 		jsc3.setBounds(0, 60, 760, 760);
+		Usugang.getColumn(row[0]).setPreferredWidth(170);
+		Usugang.getColumn(row[1]).setPreferredWidth(130);
+		Usugang.getColumn(row[2]).setPreferredWidth(250);
 		
 		
 		allclick = new JButton("전체신청");
 		c.add(allclick);
 		allclick.setBounds(250, 840, 100, 50);
+		allclick.setBackground(color1);
+		allclick.setForeground(Color.WHITE);
 		
 		allclick.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -106,7 +121,7 @@ public class Sugang extends JFrame {
 							}
 					else {
 						for(int i=0; i<10; i++)
-							input[i] = (String)Uhope.getValueAt(a, i);
+							input[i] = (String)Uselect.getValueAt(a, i);
 						dm3.addRow(input);
 						jsc3.setVisible(false);
 						dm2.removeRow(0);
@@ -123,6 +138,8 @@ public class Sugang extends JFrame {
 		oneclick = new JButton("개별신청");
 		c.add(oneclick);
 		oneclick.setBounds(360, 840, 100, 50);
+		oneclick.setBackground(color1);
+		oneclick.setForeground(Color.WHITE);
 		
 		oneclick.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -148,6 +165,8 @@ public class Sugang extends JFrame {
 		c.add(click);
 		click.setBounds(360, 840, 100, 50);
 		click.setVisible(false);
+		click.setBackground(color1);
+		click.setForeground(Color.WHITE);
 		
 		click.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -172,6 +191,8 @@ public class Sugang extends JFrame {
 		c.add(hopeclick);
 		hopeclick.setBounds(250,840,100,50);
 		hopeclick.setVisible(false);
+		hopeclick.setForeground(Color.WHITE);
+		hopeclick.setBackground(color1);
 		
 		hopeclick.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -194,11 +215,14 @@ public class Sugang extends JFrame {
 		
 		JMenuBar m = new JMenuBar();
 		
+		
 		f1 = new JButton("사용자 저장 예비수강목록");
 		f1.setFont(new Font( "Malgun Gothic Bold", Font.BOLD, 15));
-		f1.setBorderPainted(false);
-		f1.setContentAreaFilled(false);
+		
+		f1.setFocusPainted(false);
 		m.add(f1);
+		f1.setBackground(color1);
+		f1.setForeground(Color.WHITE);
 		
 		f1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -227,9 +251,11 @@ public class Sugang extends JFrame {
 		
 		f2 = new JButton("직접선택");
 		f2.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
-		f2.setBorderPainted(false);
-		f2.setContentAreaFilled(false);
+		
+		f2.setFocusPainted(false);
 		m.add(f2);
+		f2.setBackground(color1);
+		f2.setForeground(Color.WHITE);
 		
 		f2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -246,10 +272,12 @@ public class Sugang extends JFrame {
 		
 		f3 = new JButton("사용자 신청 수강목록");
 		f3.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
-		f3.setBorderPainted(false);
-		f3.setContentAreaFilled(false);
-		m.add(f3);
 		
+		
+		m.add(f3);
+		f3.setForeground(Color.WHITE);
+		f3.setBackground(color1);
+		f3.setFocusPainted(false);
 		f3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				allclick.setVisible(false);
@@ -280,8 +308,9 @@ public class Sugang extends JFrame {
 		
 		f4 = new JButton("뒤로가기");
 		f4.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
-		f4.setBorderPainted(false);
-		f4.setContentAreaFilled(false);
+		f4.setFocusPainted(false);
+		f4.setBackground(color1);
+		f4.setForeground(Color.WHITE);
 		m.add(f4);
 		
 		f4.addActionListener(new ActionListener() {
@@ -292,13 +321,16 @@ public class Sugang extends JFrame {
 		});
 		
 		c.add(m);
-		m.setBounds(80, 5, 600, 50);
+		m.setBounds(80, 15, 575, 29);
+		m.setBackground(color1);
 		
 		select = new JButton("전체신청");
 		c.add(select);
 		select.setVisible(false);
 		select.setBounds(240,770,100,50);
 		select.setFont(new Font("Malgun Gothic Bold", Font.BOLD, 15));
+		select.setBackground(color1);
+		select.setForeground(Color.WHITE);
 		
 		setSize(765, 950);
 		setResizable(false);
