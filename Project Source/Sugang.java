@@ -17,7 +17,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 public class Sugang extends JFrame {
@@ -134,14 +133,12 @@ public class Sugang extends JFrame {
 							}
 					else {
 						for(int i=0; i<10; i++)
-							input[i] = (String)Uselect.getValueAt(a, i);
+							input[i] = (String)Uhope.getValueAt(a, i);
 						dm3.addRow(input);
 						jsc3.setVisible(false);
 						dm2.removeRow(0);
-						if(Usugang.getRowCount() > 6) {
-							JOptionPane.showMessageDialog(null, "신청가능한 과목수는 최대 7과목 입니다.", "신청초과오류", JOptionPane.WARNING_MESSAGE);
+						if(Uhope.getRowCount() == 0)
 							break;
-								}
 					}
 				
 				}
@@ -168,7 +165,7 @@ public class Sugang extends JFrame {
 				if(Uhope.getSelectedRow() == -1)
 					return;
 				else
-					dm.removeRow(Uhope.getSelectedRow());
+					dm2.removeRow(Uhope.getSelectedRow());
 				}
 				
 			}
