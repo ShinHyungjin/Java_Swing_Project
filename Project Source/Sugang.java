@@ -81,28 +81,41 @@ public class Sugang extends JFrame {
 		c.add(jsc);
 		jsc.setVisible(false);
 		Uselect.setVisible(false);
-		jsc.setBounds(0, 60, 760, 760);
-		Uselect.getColumn(row[0]).setPreferredWidth(170);
+		jsc.setBounds(15, 60, 770, 760);
+		Uselect.getColumn(row[0]).setPreferredWidth(230);
 		Uselect.getColumn(row[1]).setPreferredWidth(130);
 		Uselect.getColumn(row[2]).setPreferredWidth(250);
+		Uselect.getColumn(row[9]).setPreferredWidth(120);
+		Uselect.getColumn(row[3]).setPreferredWidth(40);
+		Uselect.getColumn(row[5]).setPreferredWidth(40);
+		Uselect.getColumn(row[7]).setPreferredWidth(100);
+		
 		
 		dm2 = new DefaultTableModel(Uhang, row);
 		Uhope = new JTable(dm2);
 		jsc2 = new JScrollPane(Uhope);
 		c.add(jsc2);
-		jsc2.setBounds(0, 60, 760, 760);
-		Uhope.getColumn(row[0]).setPreferredWidth(170);
+		jsc2.setBounds(15, 60, 770, 760);
+		Uhope.getColumn(row[0]).setPreferredWidth(230);
 		Uhope.getColumn(row[1]).setPreferredWidth(130);
 		Uhope.getColumn(row[2]).setPreferredWidth(250);
+		Uhope.getColumn(row[9]).setPreferredWidth(120);
+		Uhope.getColumn(row[3]).setPreferredWidth(40);
+		Uhope.getColumn(row[5]).setPreferredWidth(40);
+		Uhope.getColumn(row[7]).setPreferredWidth(100);
 		
 		dm3 = new DefaultTableModel(Usu, row);
 		Usugang = new JTable(dm3);
 		jsc3 = new JScrollPane(Usugang);
 		c.add(jsc3);
-		jsc3.setBounds(0, 60, 760, 760);
-		Usugang.getColumn(row[0]).setPreferredWidth(170);
+		jsc3.setBounds(15, 60, 770, 760);
+		Usugang.getColumn(row[0]).setPreferredWidth(230);
 		Usugang.getColumn(row[1]).setPreferredWidth(130);
 		Usugang.getColumn(row[2]).setPreferredWidth(250);
+		Usugang.getColumn(row[9]).setPreferredWidth(120);
+		Usugang.getColumn(row[3]).setPreferredWidth(40);
+		Usugang.getColumn(row[5]).setPreferredWidth(40);
+		Usugang.getColumn(row[7]).setPreferredWidth(100);
 		
 		
 		allclick = new JButton("전체신청");
@@ -332,7 +345,7 @@ public class Sugang extends JFrame {
 		select.setBackground(color1);
 		select.setForeground(Color.WHITE);
 		
-		setSize(765, 950);
+		setSize(805, 950);
 		setResizable(false);
 		setVisible(true);
 	}
