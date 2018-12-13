@@ -103,12 +103,12 @@ public class Credit extends JFrame {
 		c.add(go2);
 		go2.setBounds(90, 200, 100, 40);
 		
-		gi1 = new JLabel("기본필수");
+		gi1 = new JLabel("기초필수");
 		gi1.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(gi1);
 		gi1.setBounds(270, 140, 100, 40);
 		
-		gi2 = new JLabel("기본선택");
+		gi2 = new JLabel("기초선택");
 		gi2.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(gi2);
 		gi2.setBounds(270, 200, 100, 40);
@@ -143,12 +143,12 @@ public class Credit extends JFrame {
 		c.add(go4);
 		go4.setBounds(90, 480, 100, 40);
 
-		gi3 = new JLabel("기본필수");
+		gi3 = new JLabel("기초필수");
 		gi3.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(gi3);
 		gi3.setBounds(270, 425, 100, 40);
 
-		gi4 = new JLabel("기본선택");
+		gi4 = new JLabel("기선택");
 		gi4.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(gi4);
 		gi4.setBounds(270, 480, 100, 40);
