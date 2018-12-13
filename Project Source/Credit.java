@@ -22,6 +22,9 @@ public class Credit extends JFrame {
 	static String [] b = {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"};
 	String line;
 	int sum[] = new int[7];
+	int k,p;
+	int total = 140;
+	int total2 = 130; 
 	
 	public Credit() {
 		setTitle("학점관리");
@@ -197,36 +200,43 @@ public class Credit extends JFrame {
 		c.add(box8);
 		box8.setBounds(192, 430, 70, 30);
 		box8.setEditable(false);
+		box8.setFont(new Font("휴먼고딕체",Font.BOLD,15));
 
 		box9 = new JTextField();
 		c.add(box9);
 		box9.setBounds(365, 430, 70, 30);
 		box9.setEditable(false);
+		box9.setFont(new Font("휴먼고딕체",Font.BOLD,15));
 
 		box10 = new JTextField();
 		c.add(box10);
 		box10.setBounds(545, 430, 70, 30);
 		box10.setEditable(false);
+		box10.setFont(new Font("휴먼고딕체",Font.BOLD,15));
 
 		box11 = new JTextField();
 		c.add(box11);
 		box11.setBounds(192, 485, 70, 30);
 		box11.setEditable(false);
+		box11.setFont(new Font("휴먼고딕체",Font.BOLD,15));
 
 		box12 = new JTextField();
 		c.add(box12);
 		box12.setBounds(365, 485, 70, 30);
 		box12.setEditable(false);
+		box12.setFont(new Font("휴먼고딕체",Font.BOLD,15));
 
 		box13 = new JTextField();
 		c.add(box13);
 		box13.setBounds(545, 485, 70, 30);
 		box13.setEditable(false);
+		box13.setFont(new Font("휴먼고딕체",Font.BOLD,15));
 
 		box14 = new JTextField();
 		c.add(box14);
 		box14.setBounds(365, 540, 70, 30);
 		box14.setEditable(false);
+		box14.setFont(new Font("휴먼고딕체",Font.BOLD,15));
 
 		button = new JButton("비교하기");
 		button.setFont(new Font("휴면고딕체", Font.BOLD,17));
@@ -246,24 +256,45 @@ public class Credit extends JFrame {
 							if (line == null)
 								break;
 								String[] arr = line.split("\t");
-								if(arr[0].equals(Jc.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
 								{
-									sum [0]  = Integer.parseInt(arr[1]) - Integer.parseInt(box1.getText()); 
-									sum [1]  = Integer.parseInt(arr[3]) - Integer.parseInt(box2.getText()); 
-									sum [2]  = Integer.parseInt(arr[5]) - Integer.parseInt(box3.getText()); 
-									sum [3]  = Integer.parseInt(arr[2]) - Integer.parseInt(box4.getText()); 
-									sum [4]  = Integer.parseInt(arr[4]) - Integer.parseInt(box5.getText()); 
-									sum [5]  = Integer.parseInt(arr[6]) - Integer.parseInt(box6.getText()); 
-									sum [6]  = 140 - Integer.parseInt(box7.getText());  
-									box8.setText(String.valueOf(sum[0]));
-									box9.setText(String.valueOf(sum[1]));
-									box10.setText(String.valueOf(sum[2]));
-									box11.setText(String.valueOf(sum[3]));
-									box12.setText(String.valueOf(sum[4]));
-									box13.setText(String.valueOf(sum[5]));
-									box14.setText(String.valueOf(sum[6]));
+								k = Integer.parseInt(arr[1]);
+								p = Integer.parseInt(box1.getText());
+								sum[0] = k-p;
+								box8.setText(String.valueOf(sum[0]));
+								
+								k = Integer.parseInt(arr[3]);
+								p = Integer.parseInt(box2.getText());
+								sum[1] = k-p;
+								box9.setText(String.valueOf(sum[1]));
+								
+								k = Integer.parseInt(arr[5]);
+								p = Integer.parseInt(box3.getText());
+								sum[2] = k-p;
+								box10.setText(String.valueOf(sum[2]));
+								
+								k = Integer.parseInt(arr[2]);
+								p = Integer.parseInt(box4.getText());
+								sum[3] = k-p;
+								box11.setText(String.valueOf(sum[3]));
+								
+								k = Integer.parseInt(arr[4]);
+								p = Integer.parseInt(box5.getText());
+								sum[4] = k-p;
+								box12.setText(String.valueOf(sum[4]));
+								
+								k = Integer.parseInt(arr[6]);
+								p = Integer.parseInt(box6.getText());
+								sum[5] = k-p;
+								box13.setText(String.valueOf(sum[5]));
+								
+								
+								p = Integer.parseInt(box7.getText());
+								sum[6] = total - p;
+								box14.setText(String.valueOf(sum[6]));
 								}
 							} 
+						
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -273,6 +304,50 @@ public class Credit extends JFrame {
 				{
 					try {
 						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2011이수학점.txt"), "euc-kr"));
+						while (true) {
+							line = br.readLine();
+							if (line == null)
+								break;
+								String[] arr = line.split("\t");
+								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								{
+								k = Integer.parseInt(arr[1]);
+								p = Integer.parseInt(box1.getText());
+								sum[0] = k-p;
+								box8.setText(String.valueOf(sum[0]));
+								
+								k = Integer.parseInt(arr[3]);
+								p = Integer.parseInt(box2.getText());
+								sum[1] = k-p;
+								box9.setText(String.valueOf(sum[1]));
+								
+								k = Integer.parseInt(arr[5]);
+								p = Integer.parseInt(box3.getText());
+								sum[2] = k-p;
+								box10.setText(String.valueOf(sum[2]));
+								
+								k = Integer.parseInt(arr[2]);
+								p = Integer.parseInt(box4.getText());
+								sum[3] = k-p;
+								box11.setText(String.valueOf(sum[3]));
+								
+								k = Integer.parseInt(arr[4]);
+								p = Integer.parseInt(box5.getText());
+								sum[4] = k-p;
+								box12.setText(String.valueOf(sum[4]));
+								
+								k = Integer.parseInt(arr[6]);
+								p = Integer.parseInt(box6.getText());
+								sum[5] = k-p;
+								box13.setText(String.valueOf(sum[5]));
+								
+								
+								p = Integer.parseInt(box7.getText());
+								sum[6] = total - p;
+								box14.setText(String.valueOf(sum[6]));
+								}
+						}
+						
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -282,6 +357,49 @@ public class Credit extends JFrame {
 				{
 					try {
 						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2012이수학점.txt"), "euc-kr"));
+						while (true) {
+							line = br.readLine();
+							if (line == null)
+								break;
+								String[] arr = line.split("\t");
+								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								{
+								k = Integer.parseInt(arr[1]);
+								p = Integer.parseInt(box1.getText());
+								sum[0] = k-p;
+								box8.setText(String.valueOf(sum[0]));
+								
+								k = Integer.parseInt(arr[3]);
+								p = Integer.parseInt(box2.getText());
+								sum[1] = k-p;
+								box9.setText(String.valueOf(sum[1]));
+								
+								k = Integer.parseInt(arr[5]);
+								p = Integer.parseInt(box3.getText());
+								sum[2] = k-p;
+								box10.setText(String.valueOf(sum[2]));
+								
+								k = Integer.parseInt(arr[2]);
+								p = Integer.parseInt(box4.getText());
+								sum[3] = k-p;
+								box11.setText(String.valueOf(sum[3]));
+								
+								k = Integer.parseInt(arr[4]);
+								p = Integer.parseInt(box5.getText());
+								sum[4] = k-p;
+								box12.setText(String.valueOf(sum[4]));
+								
+								k = Integer.parseInt(arr[6]);
+								p = Integer.parseInt(box6.getText());
+								sum[5] = k-p;
+								box13.setText(String.valueOf(sum[5]));
+								
+								
+								p = Integer.parseInt(box7.getText());
+								sum[6] = total - p;
+								box14.setText(String.valueOf(sum[6]));
+								}
+						}
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -291,6 +409,49 @@ public class Credit extends JFrame {
 				{
 					try {
 						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2013이수학점.txt"), "euc-kr"));
+						while (true) {
+							line = br.readLine();
+							if (line == null)
+								break;
+								String[] arr = line.split("\t");
+								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								{
+								k = Integer.parseInt(arr[1]);
+								p = Integer.parseInt(box1.getText());
+								sum[0] = k-p;
+								box8.setText(String.valueOf(sum[0]));
+								
+								k = Integer.parseInt(arr[3]);
+								p = Integer.parseInt(box2.getText());
+								sum[1] = k-p;
+								box9.setText(String.valueOf(sum[1]));
+								
+								k = Integer.parseInt(arr[5]);
+								p = Integer.parseInt(box3.getText());
+								sum[2] = k-p;
+								box10.setText(String.valueOf(sum[2]));
+								
+								k = Integer.parseInt(arr[2]);
+								p = Integer.parseInt(box4.getText());
+								sum[3] = k-p;
+								box11.setText(String.valueOf(sum[3]));
+								
+								k = Integer.parseInt(arr[4]);
+								p = Integer.parseInt(box5.getText());
+								sum[4] = k-p;
+								box12.setText(String.valueOf(sum[4]));
+								
+								k = Integer.parseInt(arr[6]);
+								p = Integer.parseInt(box6.getText());
+								sum[5] = k-p;
+								box13.setText(String.valueOf(sum[5]));
+								
+								
+								p = Integer.parseInt(box7.getText());
+								sum[6] = total - p;
+								box14.setText(String.valueOf(sum[6]));
+								}
+						}
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -300,6 +461,49 @@ public class Credit extends JFrame {
 				{
 					try {
 						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2014이수학점.txt"), "euc-kr"));
+						while (true) {
+							line = br.readLine();
+							if (line == null)
+								break;
+								String[] arr = line.split("\t");
+								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								{
+								k = Integer.parseInt(arr[1]);
+								p = Integer.parseInt(box1.getText());
+								sum[0] = k-p;
+								box8.setText(String.valueOf(sum[0]));
+								
+								k = Integer.parseInt(arr[3]);
+								p = Integer.parseInt(box2.getText());
+								sum[1] = k-p;
+								box9.setText(String.valueOf(sum[1]));
+								
+								k = Integer.parseInt(arr[5]);
+								p = Integer.parseInt(box3.getText());
+								sum[2] = k-p;
+								box10.setText(String.valueOf(sum[2]));
+								
+								k = Integer.parseInt(arr[2]);
+								p = Integer.parseInt(box4.getText());
+								sum[3] = k-p;
+								box11.setText(String.valueOf(sum[3]));
+								
+								k = Integer.parseInt(arr[4]);
+								p = Integer.parseInt(box5.getText());
+								sum[4] = k-p;
+								box12.setText(String.valueOf(sum[4]));
+								
+								k = Integer.parseInt(arr[6]);
+								p = Integer.parseInt(box6.getText());
+								sum[5] = k-p;
+								box13.setText(String.valueOf(sum[5]));
+								
+								
+								p = Integer.parseInt(box7.getText());
+								sum[6] = total - p;
+								box14.setText(String.valueOf(sum[6]));
+								}
+						}
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -309,6 +513,49 @@ public class Credit extends JFrame {
 				{
 					try {
 						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2015이수학점.txt"), "euc-kr"));
+						while (true) {
+							line = br.readLine();
+							if (line == null)
+								break;
+								String[] arr = line.split("\t");
+								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								{
+								k = Integer.parseInt(arr[1]);
+								p = Integer.parseInt(box1.getText());
+								sum[0] = k-p;
+								box8.setText(String.valueOf(sum[0]));
+								
+								k = Integer.parseInt(arr[3]);
+								p = Integer.parseInt(box2.getText());
+								sum[1] = k-p;
+								box9.setText(String.valueOf(sum[1]));
+								
+								k = Integer.parseInt(arr[5]);
+								p = Integer.parseInt(box3.getText());
+								sum[2] = k-p;
+								box10.setText(String.valueOf(sum[2]));
+								
+								k = Integer.parseInt(arr[2]);
+								p = Integer.parseInt(box4.getText());
+								sum[3] = k-p;
+								box11.setText(String.valueOf(sum[3]));
+								
+								k = Integer.parseInt(arr[4]);
+								p = Integer.parseInt(box5.getText());
+								sum[4] = k-p;
+								box12.setText(String.valueOf(sum[4]));
+								
+								k = Integer.parseInt(arr[6]);
+								p = Integer.parseInt(box6.getText());
+								sum[5] = k-p;
+								box13.setText(String.valueOf(sum[5]));
+								
+								
+								p = Integer.parseInt(box7.getText());
+								sum[6] = total - p;
+								box14.setText(String.valueOf(sum[6]));
+								}
+						}
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -318,6 +565,49 @@ public class Credit extends JFrame {
 				{
 					try {
 						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2016이수학점.txt"), "euc-kr"));
+						while (true) {
+							line = br.readLine();
+							if (line == null)
+								break;
+								String[] arr = line.split("\t");
+								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								{
+								k = Integer.parseInt(arr[1]);
+								p = Integer.parseInt(box1.getText());
+								sum[0] = k-p;
+								box8.setText(String.valueOf(sum[0]));
+								
+								k = Integer.parseInt(arr[3]);
+								p = Integer.parseInt(box2.getText());
+								sum[1] = k-p;
+								box9.setText(String.valueOf(sum[1]));
+								
+								k = Integer.parseInt(arr[5]);
+								p = Integer.parseInt(box3.getText());
+								sum[2] = k-p;
+								box10.setText(String.valueOf(sum[2]));
+								
+								k = Integer.parseInt(arr[2]);
+								p = Integer.parseInt(box4.getText());
+								sum[3] = k-p;
+								box11.setText(String.valueOf(sum[3]));
+								
+								k = Integer.parseInt(arr[4]);
+								p = Integer.parseInt(box5.getText());
+								sum[4] = k-p;
+								box12.setText(String.valueOf(sum[4]));
+								
+								k = Integer.parseInt(arr[6]);
+								p = Integer.parseInt(box6.getText());
+								sum[5] = k-p;
+								box13.setText(String.valueOf(sum[5]));
+								
+								
+								p = Integer.parseInt(box7.getText());
+								sum[6] = total - p;
+								box14.setText(String.valueOf(sum[6]));
+								}
+						}
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -327,6 +617,49 @@ public class Credit extends JFrame {
 				{
 					try {
 						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2017이수학점.txt"), "euc-kr"));
+						while (true) {
+							line = br.readLine();
+							if (line == null)
+								break;
+								String[] arr = line.split("\t");
+								if(arr[0].equals(Um.getSelectedItem()) && (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))
+								{
+								k = Integer.parseInt(arr[1]);
+								p = Integer.parseInt(box1.getText());
+								sum[0] = k-p;
+								box8.setText(String.valueOf(sum[0]));
+								
+								k = Integer.parseInt(arr[3]);
+								p = Integer.parseInt(box2.getText());
+								sum[1] = k-p;
+								box9.setText(String.valueOf(sum[1]));
+								
+								k = Integer.parseInt(arr[5]);
+								p = Integer.parseInt(box3.getText());
+								sum[2] = k-p;
+								box10.setText(String.valueOf(sum[2]));
+								
+								k = Integer.parseInt(arr[2]);
+								p = Integer.parseInt(box4.getText());
+								sum[3] = k-p;
+								box11.setText(String.valueOf(sum[3]));
+								
+								k = Integer.parseInt(arr[4]);
+								p = Integer.parseInt(box5.getText());
+								sum[4] = k-p;
+								box12.setText(String.valueOf(sum[4]));
+								
+								k = Integer.parseInt(arr[6]);
+								p = Integer.parseInt(box6.getText());
+								sum[5] = k-p;
+								box13.setText(String.valueOf(sum[5]));
+								
+								
+								p = Integer.parseInt(box7.getText());
+								sum[6] = total2 - p;
+								box14.setText(String.valueOf(sum[6]));
+								}
+						}
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -336,6 +669,49 @@ public class Credit extends JFrame {
 				{
 					try {
 						BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("c:\\2018이수학점.txt"), "euc-kr"));
+						while (true) {
+							line = br.readLine();
+							if (line == null)
+								break;
+								String[] arr = line.split("\t");
+								if(arr[0].equals(Um.getSelectedItem()) && (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))
+								{
+								k = Integer.parseInt(arr[1]);
+								p = Integer.parseInt(box1.getText());
+								sum[0] = k-p;
+								box8.setText(String.valueOf(sum[0]));
+								
+								k = Integer.parseInt(arr[3]);
+								p = Integer.parseInt(box2.getText());
+								sum[1] = k-p;
+								box9.setText(String.valueOf(sum[1]));
+								
+								k = Integer.parseInt(arr[5]);
+								p = Integer.parseInt(box3.getText());
+								sum[2] = k-p;
+								box10.setText(String.valueOf(sum[2]));
+								
+								k = Integer.parseInt(arr[2]);
+								p = Integer.parseInt(box4.getText());
+								sum[3] = k-p;
+								box11.setText(String.valueOf(sum[3]));
+								
+								k = Integer.parseInt(arr[4]);
+								p = Integer.parseInt(box5.getText());
+								sum[4] = k-p;
+								box12.setText(String.valueOf(sum[4]));
+								
+								k = Integer.parseInt(arr[6]);
+								p = Integer.parseInt(box6.getText());
+								sum[5] = k-p;
+								box13.setText(String.valueOf(sum[5]));
+								
+								
+								p = Integer.parseInt(box7.getText());
+								sum[6] = total2 - p;
+								box14.setText(String.valueOf(sum[6]));
+								}
+						}
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
