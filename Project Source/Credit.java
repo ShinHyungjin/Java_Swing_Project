@@ -22,7 +22,7 @@ public class Credit extends JFrame {
 	static String [] b = {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"};
 	String line;
 	int sum[] = new int[7];
-	int k,p;
+	int k,p,w;
 	int total = 140;
 	int total2 = 130; 
 	
@@ -103,12 +103,12 @@ public class Credit extends JFrame {
 		c.add(go2);
 		go2.setBounds(90, 200, 100, 40);
 		
-		gi1 = new JLabel("기초필수");
+		gi1 = new JLabel("기본필수");
 		gi1.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(gi1);
 		gi1.setBounds(270, 140, 100, 40);
 		
-		gi2 = new JLabel("기초선택");
+		gi2 = new JLabel("기본선택");
 		gi2.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(gi2);
 		gi2.setBounds(270, 200, 100, 40);
@@ -143,12 +143,12 @@ public class Credit extends JFrame {
 		c.add(go4);
 		go4.setBounds(90, 480, 100, 40);
 
-		gi3 = new JLabel("기초필수");
+		gi3 = new JLabel("기본필수");
 		gi3.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(gi3);
 		gi3.setBounds(270, 425, 100, 40);
 
-		gi4 = new JLabel("기선택");
+		gi4 = new JLabel("기본선택");
 		gi4.setFont(new Font("휴먼고딕체",Font.BOLD,22));
 		c.add(gi4);
 		gi4.setBounds(270, 480, 100, 40);
@@ -195,6 +195,8 @@ public class Credit extends JFrame {
 		box7 = new JTextField();
 		c.add(box7);
 		box7.setBounds(365, 265, 70, 30);
+		box7.setEditable(false);
+		
 		
 		box8 = new JTextField();
 		c.add(box8);
@@ -256,42 +258,51 @@ public class Credit extends JFrame {
 							if (line == null)
 								break;
 								String[] arr = line.split("\t");
-								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								if(arr[0].equals(Um.getSelectedItem()))
 								{
+								w=0;
 								k = Integer.parseInt(arr[1]);
 								p = Integer.parseInt(box1.getText());
+								w = w+p;
 								sum[0] = k-p;
 								box8.setText(String.valueOf(sum[0]));
 								
 								k = Integer.parseInt(arr[3]);
 								p = Integer.parseInt(box2.getText());
+								w = w+p;
 								sum[1] = k-p;
 								box9.setText(String.valueOf(sum[1]));
 								
 								k = Integer.parseInt(arr[5]);
 								p = Integer.parseInt(box3.getText());
+								w = w+p;
 								sum[2] = k-p;
 								box10.setText(String.valueOf(sum[2]));
 								
 								k = Integer.parseInt(arr[2]);
 								p = Integer.parseInt(box4.getText());
+								w = w+p;
 								sum[3] = k-p;
 								box11.setText(String.valueOf(sum[3]));
 								
 								k = Integer.parseInt(arr[4]);
 								p = Integer.parseInt(box5.getText());
+								w = w+p;
 								sum[4] = k-p;
 								box12.setText(String.valueOf(sum[4]));
 								
 								k = Integer.parseInt(arr[6]);
 								p = Integer.parseInt(box6.getText());
+								w = w+p;
 								sum[5] = k-p;
 								box13.setText(String.valueOf(sum[5]));
 								
+								box7.setText(String.valueOf(w));
 								
 								p = Integer.parseInt(box7.getText());
 								sum[6] = total - p;
 								box14.setText(String.valueOf(sum[6]));
+								
 								}
 							} 
 						
@@ -309,42 +320,50 @@ public class Credit extends JFrame {
 							if (line == null)
 								break;
 								String[] arr = line.split("\t");
-								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								if(arr[0].equals(Um.getSelectedItem()))
 								{
-								k = Integer.parseInt(arr[1]);
-								p = Integer.parseInt(box1.getText());
-								sum[0] = k-p;
-								box8.setText(String.valueOf(sum[0]));
-								
-								k = Integer.parseInt(arr[3]);
-								p = Integer.parseInt(box2.getText());
-								sum[1] = k-p;
-								box9.setText(String.valueOf(sum[1]));
-								
-								k = Integer.parseInt(arr[5]);
-								p = Integer.parseInt(box3.getText());
-								sum[2] = k-p;
-								box10.setText(String.valueOf(sum[2]));
-								
-								k = Integer.parseInt(arr[2]);
-								p = Integer.parseInt(box4.getText());
-								sum[3] = k-p;
-								box11.setText(String.valueOf(sum[3]));
-								
-								k = Integer.parseInt(arr[4]);
-								p = Integer.parseInt(box5.getText());
-								sum[4] = k-p;
-								box12.setText(String.valueOf(sum[4]));
-								
-								k = Integer.parseInt(arr[6]);
-								p = Integer.parseInt(box6.getText());
-								sum[5] = k-p;
-								box13.setText(String.valueOf(sum[5]));
-								
-								
-								p = Integer.parseInt(box7.getText());
-								sum[6] = total - p;
-								box14.setText(String.valueOf(sum[6]));
+									w=0;
+									k = Integer.parseInt(arr[1]);
+									p = Integer.parseInt(box1.getText());
+									w = w+p;
+									sum[0] = k-p;
+									box8.setText(String.valueOf(sum[0]));
+									
+									k = Integer.parseInt(arr[3]);
+									p = Integer.parseInt(box2.getText());
+									w = w+p;
+									sum[1] = k-p;
+									box9.setText(String.valueOf(sum[1]));
+									
+									k = Integer.parseInt(arr[5]);
+									p = Integer.parseInt(box3.getText());
+									w = w+p;
+									sum[2] = k-p;
+									box10.setText(String.valueOf(sum[2]));
+									
+									k = Integer.parseInt(arr[2]);
+									p = Integer.parseInt(box4.getText());
+									w = w+p;
+									sum[3] = k-p;
+									box11.setText(String.valueOf(sum[3]));
+									
+									k = Integer.parseInt(arr[4]);
+									p = Integer.parseInt(box5.getText());
+									w = w+p;
+									sum[4] = k-p;
+									box12.setText(String.valueOf(sum[4]));
+									
+									k = Integer.parseInt(arr[6]);
+									p = Integer.parseInt(box6.getText());
+									w = w+p;
+									sum[5] = k-p;
+									box13.setText(String.valueOf(sum[5]));
+									
+									box7.setText(String.valueOf(w));
+									
+									p = Integer.parseInt(box7.getText());
+									sum[6] = total - p;
+									box14.setText(String.valueOf(sum[6]));
 								}
 						}
 						
@@ -362,42 +381,50 @@ public class Credit extends JFrame {
 							if (line == null)
 								break;
 								String[] arr = line.split("\t");
-								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								if(arr[0].equals(Um.getSelectedItem())) 
 								{
-								k = Integer.parseInt(arr[1]);
-								p = Integer.parseInt(box1.getText());
-								sum[0] = k-p;
-								box8.setText(String.valueOf(sum[0]));
-								
-								k = Integer.parseInt(arr[3]);
-								p = Integer.parseInt(box2.getText());
-								sum[1] = k-p;
-								box9.setText(String.valueOf(sum[1]));
-								
-								k = Integer.parseInt(arr[5]);
-								p = Integer.parseInt(box3.getText());
-								sum[2] = k-p;
-								box10.setText(String.valueOf(sum[2]));
-								
-								k = Integer.parseInt(arr[2]);
-								p = Integer.parseInt(box4.getText());
-								sum[3] = k-p;
-								box11.setText(String.valueOf(sum[3]));
-								
-								k = Integer.parseInt(arr[4]);
-								p = Integer.parseInt(box5.getText());
-								sum[4] = k-p;
-								box12.setText(String.valueOf(sum[4]));
-								
-								k = Integer.parseInt(arr[6]);
-								p = Integer.parseInt(box6.getText());
-								sum[5] = k-p;
-								box13.setText(String.valueOf(sum[5]));
-								
-								
-								p = Integer.parseInt(box7.getText());
-								sum[6] = total - p;
-								box14.setText(String.valueOf(sum[6]));
+									w=0;
+									k = Integer.parseInt(arr[1]);
+									p = Integer.parseInt(box1.getText());
+									w = w+p;
+									sum[0] = k-p;
+									box8.setText(String.valueOf(sum[0]));
+									
+									k = Integer.parseInt(arr[3]);
+									p = Integer.parseInt(box2.getText());
+									w = w+p;
+									sum[1] = k-p;
+									box9.setText(String.valueOf(sum[1]));
+									
+									k = Integer.parseInt(arr[5]);
+									p = Integer.parseInt(box3.getText());
+									w = w+p;
+									sum[2] = k-p;
+									box10.setText(String.valueOf(sum[2]));
+									
+									k = Integer.parseInt(arr[2]);
+									p = Integer.parseInt(box4.getText());
+									w = w+p;
+									sum[3] = k-p;
+									box11.setText(String.valueOf(sum[3]));
+									
+									k = Integer.parseInt(arr[4]);
+									p = Integer.parseInt(box5.getText());
+									w = w+p;
+									sum[4] = k-p;
+									box12.setText(String.valueOf(sum[4]));
+									
+									k = Integer.parseInt(arr[6]);
+									p = Integer.parseInt(box6.getText());
+									w = w+p;
+									sum[5] = k-p;
+									box13.setText(String.valueOf(sum[5]));
+									
+									box7.setText(String.valueOf(w));
+									
+									p = Integer.parseInt(box7.getText());
+									sum[6] = total - p;
+									box14.setText(String.valueOf(sum[6]));
 								}
 						}
 					} catch (IOException e1) {
@@ -414,42 +441,50 @@ public class Credit extends JFrame {
 							if (line == null)
 								break;
 								String[] arr = line.split("\t");
-								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								if(arr[0].equals(Um.getSelectedItem())) 
 								{
-								k = Integer.parseInt(arr[1]);
-								p = Integer.parseInt(box1.getText());
-								sum[0] = k-p;
-								box8.setText(String.valueOf(sum[0]));
-								
-								k = Integer.parseInt(arr[3]);
-								p = Integer.parseInt(box2.getText());
-								sum[1] = k-p;
-								box9.setText(String.valueOf(sum[1]));
-								
-								k = Integer.parseInt(arr[5]);
-								p = Integer.parseInt(box3.getText());
-								sum[2] = k-p;
-								box10.setText(String.valueOf(sum[2]));
-								
-								k = Integer.parseInt(arr[2]);
-								p = Integer.parseInt(box4.getText());
-								sum[3] = k-p;
-								box11.setText(String.valueOf(sum[3]));
-								
-								k = Integer.parseInt(arr[4]);
-								p = Integer.parseInt(box5.getText());
-								sum[4] = k-p;
-								box12.setText(String.valueOf(sum[4]));
-								
-								k = Integer.parseInt(arr[6]);
-								p = Integer.parseInt(box6.getText());
-								sum[5] = k-p;
-								box13.setText(String.valueOf(sum[5]));
-								
-								
-								p = Integer.parseInt(box7.getText());
-								sum[6] = total - p;
-								box14.setText(String.valueOf(sum[6]));
+									w=0;
+									k = Integer.parseInt(arr[1]);
+									p = Integer.parseInt(box1.getText());
+									w = w+p;
+									sum[0] = k-p;
+									box8.setText(String.valueOf(sum[0]));
+									
+									k = Integer.parseInt(arr[3]);
+									p = Integer.parseInt(box2.getText());
+									w = w+p;
+									sum[1] = k-p;
+									box9.setText(String.valueOf(sum[1]));
+									
+									k = Integer.parseInt(arr[5]);
+									p = Integer.parseInt(box3.getText());
+									w = w+p;
+									sum[2] = k-p;
+									box10.setText(String.valueOf(sum[2]));
+									
+									k = Integer.parseInt(arr[2]);
+									p = Integer.parseInt(box4.getText());
+									w = w+p;
+									sum[3] = k-p;
+									box11.setText(String.valueOf(sum[3]));
+									
+									k = Integer.parseInt(arr[4]);
+									p = Integer.parseInt(box5.getText());
+									w = w+p;
+									sum[4] = k-p;
+									box12.setText(String.valueOf(sum[4]));
+									
+									k = Integer.parseInt(arr[6]);
+									p = Integer.parseInt(box6.getText());
+									w = w+p;
+									sum[5] = k-p;
+									box13.setText(String.valueOf(sum[5]));
+									
+									box7.setText(String.valueOf(w));
+									
+									p = Integer.parseInt(box7.getText());
+									sum[6] = total - p;
+									box14.setText(String.valueOf(sum[6]));
 								}
 						}
 					} catch (IOException e1) {
@@ -466,42 +501,50 @@ public class Credit extends JFrame {
 							if (line == null)
 								break;
 								String[] arr = line.split("\t");
-								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								if(arr[0].equals(Um.getSelectedItem())) 
 								{
-								k = Integer.parseInt(arr[1]);
-								p = Integer.parseInt(box1.getText());
-								sum[0] = k-p;
-								box8.setText(String.valueOf(sum[0]));
-								
-								k = Integer.parseInt(arr[3]);
-								p = Integer.parseInt(box2.getText());
-								sum[1] = k-p;
-								box9.setText(String.valueOf(sum[1]));
-								
-								k = Integer.parseInt(arr[5]);
-								p = Integer.parseInt(box3.getText());
-								sum[2] = k-p;
-								box10.setText(String.valueOf(sum[2]));
-								
-								k = Integer.parseInt(arr[2]);
-								p = Integer.parseInt(box4.getText());
-								sum[3] = k-p;
-								box11.setText(String.valueOf(sum[3]));
-								
-								k = Integer.parseInt(arr[4]);
-								p = Integer.parseInt(box5.getText());
-								sum[4] = k-p;
-								box12.setText(String.valueOf(sum[4]));
-								
-								k = Integer.parseInt(arr[6]);
-								p = Integer.parseInt(box6.getText());
-								sum[5] = k-p;
-								box13.setText(String.valueOf(sum[5]));
-								
-								
-								p = Integer.parseInt(box7.getText());
-								sum[6] = total - p;
-								box14.setText(String.valueOf(sum[6]));
+									w=0;
+									k = Integer.parseInt(arr[1]);
+									p = Integer.parseInt(box1.getText());
+									w = w+p;
+									sum[0] = k-p;
+									box8.setText(String.valueOf(sum[0]));
+									
+									k = Integer.parseInt(arr[3]);
+									p = Integer.parseInt(box2.getText());
+									w = w+p;
+									sum[1] = k-p;
+									box9.setText(String.valueOf(sum[1]));
+									
+									k = Integer.parseInt(arr[5]);
+									p = Integer.parseInt(box3.getText());
+									w = w+p;
+									sum[2] = k-p;
+									box10.setText(String.valueOf(sum[2]));
+									
+									k = Integer.parseInt(arr[2]);
+									p = Integer.parseInt(box4.getText());
+									w = w+p;
+									sum[3] = k-p;
+									box11.setText(String.valueOf(sum[3]));
+									
+									k = Integer.parseInt(arr[4]);
+									p = Integer.parseInt(box5.getText());
+									w = w+p;
+									sum[4] = k-p;
+									box12.setText(String.valueOf(sum[4]));
+									
+									k = Integer.parseInt(arr[6]);
+									p = Integer.parseInt(box6.getText());
+									w = w+p;
+									sum[5] = k-p;
+									box13.setText(String.valueOf(sum[5]));
+									
+									box7.setText(String.valueOf(w));
+									
+									p = Integer.parseInt(box7.getText());
+									sum[6] = total - p;
+									box14.setText(String.valueOf(sum[6]));
 								}
 						}
 					} catch (IOException e1) {
@@ -518,42 +561,50 @@ public class Credit extends JFrame {
 							if (line == null)
 								break;
 								String[] arr = line.split("\t");
-								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								if(arr[0].equals(Um.getSelectedItem())) 
 								{
-								k = Integer.parseInt(arr[1]);
-								p = Integer.parseInt(box1.getText());
-								sum[0] = k-p;
-								box8.setText(String.valueOf(sum[0]));
-								
-								k = Integer.parseInt(arr[3]);
-								p = Integer.parseInt(box2.getText());
-								sum[1] = k-p;
-								box9.setText(String.valueOf(sum[1]));
-								
-								k = Integer.parseInt(arr[5]);
-								p = Integer.parseInt(box3.getText());
-								sum[2] = k-p;
-								box10.setText(String.valueOf(sum[2]));
-								
-								k = Integer.parseInt(arr[2]);
-								p = Integer.parseInt(box4.getText());
-								sum[3] = k-p;
-								box11.setText(String.valueOf(sum[3]));
-								
-								k = Integer.parseInt(arr[4]);
-								p = Integer.parseInt(box5.getText());
-								sum[4] = k-p;
-								box12.setText(String.valueOf(sum[4]));
-								
-								k = Integer.parseInt(arr[6]);
-								p = Integer.parseInt(box6.getText());
-								sum[5] = k-p;
-								box13.setText(String.valueOf(sum[5]));
-								
-								
-								p = Integer.parseInt(box7.getText());
-								sum[6] = total - p;
-								box14.setText(String.valueOf(sum[6]));
+									w=0;
+									k = Integer.parseInt(arr[1]);
+									p = Integer.parseInt(box1.getText());
+									w = w+p;
+									sum[0] = k-p;
+									box8.setText(String.valueOf(sum[0]));
+									
+									k = Integer.parseInt(arr[3]);
+									p = Integer.parseInt(box2.getText());
+									w = w+p;
+									sum[1] = k-p;
+									box9.setText(String.valueOf(sum[1]));
+									
+									k = Integer.parseInt(arr[5]);
+									p = Integer.parseInt(box3.getText());
+									w = w+p;
+									sum[2] = k-p;
+									box10.setText(String.valueOf(sum[2]));
+									
+									k = Integer.parseInt(arr[2]);
+									p = Integer.parseInt(box4.getText());
+									w = w+p;
+									sum[3] = k-p;
+									box11.setText(String.valueOf(sum[3]));
+									
+									k = Integer.parseInt(arr[4]);
+									p = Integer.parseInt(box5.getText());
+									w = w+p;
+									sum[4] = k-p;
+									box12.setText(String.valueOf(sum[4]));
+									
+									k = Integer.parseInt(arr[6]);
+									p = Integer.parseInt(box6.getText());
+									w = w+p;
+									sum[5] = k-p;
+									box13.setText(String.valueOf(sum[5]));
+									
+									box7.setText(String.valueOf(w));
+									
+									p = Integer.parseInt(box7.getText());
+									sum[6] = total - p;
+									box14.setText(String.valueOf(sum[6]));
 								}
 						}
 					} catch (IOException e1) {
@@ -570,42 +621,50 @@ public class Credit extends JFrame {
 							if (line == null)
 								break;
 								String[] arr = line.split("\t");
-								if(arr[0].equals(Um.getSelectedItem())) /*&& (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))*/
+								if(arr[0].equals(Um.getSelectedItem())) 
 								{
-								k = Integer.parseInt(arr[1]);
-								p = Integer.parseInt(box1.getText());
-								sum[0] = k-p;
-								box8.setText(String.valueOf(sum[0]));
-								
-								k = Integer.parseInt(arr[3]);
-								p = Integer.parseInt(box2.getText());
-								sum[1] = k-p;
-								box9.setText(String.valueOf(sum[1]));
-								
-								k = Integer.parseInt(arr[5]);
-								p = Integer.parseInt(box3.getText());
-								sum[2] = k-p;
-								box10.setText(String.valueOf(sum[2]));
-								
-								k = Integer.parseInt(arr[2]);
-								p = Integer.parseInt(box4.getText());
-								sum[3] = k-p;
-								box11.setText(String.valueOf(sum[3]));
-								
-								k = Integer.parseInt(arr[4]);
-								p = Integer.parseInt(box5.getText());
-								sum[4] = k-p;
-								box12.setText(String.valueOf(sum[4]));
-								
-								k = Integer.parseInt(arr[6]);
-								p = Integer.parseInt(box6.getText());
-								sum[5] = k-p;
-								box13.setText(String.valueOf(sum[5]));
-								
-								
-								p = Integer.parseInt(box7.getText());
-								sum[6] = total - p;
-								box14.setText(String.valueOf(sum[6]));
+									w=0;
+									k = Integer.parseInt(arr[1]);
+									p = Integer.parseInt(box1.getText());
+									w = w+p;
+									sum[0] = k-p;
+									box8.setText(String.valueOf(sum[0]));
+									
+									k = Integer.parseInt(arr[3]);
+									p = Integer.parseInt(box2.getText());
+									w = w+p;
+									sum[1] = k-p;
+									box9.setText(String.valueOf(sum[1]));
+									
+									k = Integer.parseInt(arr[5]);
+									p = Integer.parseInt(box3.getText());
+									w = w+p;
+									sum[2] = k-p;
+									box10.setText(String.valueOf(sum[2]));
+									
+									k = Integer.parseInt(arr[2]);
+									p = Integer.parseInt(box4.getText());
+									w = w+p;
+									sum[3] = k-p;
+									box11.setText(String.valueOf(sum[3]));
+									
+									k = Integer.parseInt(arr[4]);
+									p = Integer.parseInt(box5.getText());
+									w = w+p;
+									sum[4] = k-p;
+									box12.setText(String.valueOf(sum[4]));
+									
+									k = Integer.parseInt(arr[6]);
+									p = Integer.parseInt(box6.getText());
+									w = w+p;
+									sum[5] = k-p;
+									box13.setText(String.valueOf(sum[5]));
+									
+									box7.setText(String.valueOf(w));
+									
+									p = Integer.parseInt(box7.getText());
+									sum[6] = total - p;
+									box14.setText(String.valueOf(sum[6]));
 								}
 						}
 					} catch (IOException e1) {
@@ -624,40 +683,48 @@ public class Credit extends JFrame {
 								String[] arr = line.split("\t");
 								if(arr[0].equals(Um.getSelectedItem()) && (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))
 								{
-								k = Integer.parseInt(arr[1]);
-								p = Integer.parseInt(box1.getText());
-								sum[0] = k-p;
-								box8.setText(String.valueOf(sum[0]));
-								
-								k = Integer.parseInt(arr[3]);
-								p = Integer.parseInt(box2.getText());
-								sum[1] = k-p;
-								box9.setText(String.valueOf(sum[1]));
-								
-								k = Integer.parseInt(arr[5]);
-								p = Integer.parseInt(box3.getText());
-								sum[2] = k-p;
-								box10.setText(String.valueOf(sum[2]));
-								
-								k = Integer.parseInt(arr[2]);
-								p = Integer.parseInt(box4.getText());
-								sum[3] = k-p;
-								box11.setText(String.valueOf(sum[3]));
-								
-								k = Integer.parseInt(arr[4]);
-								p = Integer.parseInt(box5.getText());
-								sum[4] = k-p;
-								box12.setText(String.valueOf(sum[4]));
-								
-								k = Integer.parseInt(arr[6]);
-								p = Integer.parseInt(box6.getText());
-								sum[5] = k-p;
-								box13.setText(String.valueOf(sum[5]));
-								
-								
-								p = Integer.parseInt(box7.getText());
-								sum[6] = total2 - p;
-								box14.setText(String.valueOf(sum[6]));
+									w=0;
+									k = Integer.parseInt(arr[1]);
+									p = Integer.parseInt(box1.getText());
+									w = w+p;
+									sum[0] = k-p;
+									box8.setText(String.valueOf(sum[0]));
+									
+									k = Integer.parseInt(arr[3]);
+									p = Integer.parseInt(box2.getText());
+									w = w+p;
+									sum[1] = k-p;
+									box9.setText(String.valueOf(sum[1]));
+									
+									k = Integer.parseInt(arr[5]);
+									p = Integer.parseInt(box3.getText());
+									w = w+p;
+									sum[2] = k-p;
+									box10.setText(String.valueOf(sum[2]));
+									
+									k = Integer.parseInt(arr[2]);
+									p = Integer.parseInt(box4.getText());
+									w = w+p;
+									sum[3] = k-p;
+									box11.setText(String.valueOf(sum[3]));
+									
+									k = Integer.parseInt(arr[4]);
+									p = Integer.parseInt(box5.getText());
+									w = w+p;
+									sum[4] = k-p;
+									box12.setText(String.valueOf(sum[4]));
+									
+									k = Integer.parseInt(arr[6]);
+									p = Integer.parseInt(box6.getText());
+									w = w+p;
+									sum[5] = k-p;
+									box13.setText(String.valueOf(sum[5]));
+									
+									box7.setText(String.valueOf(w));
+									
+									p = Integer.parseInt(box7.getText());
+									sum[6] = total2 - p;
+									box14.setText(String.valueOf(sum[6]));
 								}
 						}
 					} catch (IOException e1) {
@@ -676,40 +743,48 @@ public class Credit extends JFrame {
 								String[] arr = line.split("\t");
 								if(arr[0].equals(Um.getSelectedItem()) && (year.getSelectedItem().equals(b[7]) || year.getSelectedItem().equals(b[8])))
 								{
-								k = Integer.parseInt(arr[1]);
-								p = Integer.parseInt(box1.getText());
-								sum[0] = k-p;
-								box8.setText(String.valueOf(sum[0]));
-								
-								k = Integer.parseInt(arr[3]);
-								p = Integer.parseInt(box2.getText());
-								sum[1] = k-p;
-								box9.setText(String.valueOf(sum[1]));
-								
-								k = Integer.parseInt(arr[5]);
-								p = Integer.parseInt(box3.getText());
-								sum[2] = k-p;
-								box10.setText(String.valueOf(sum[2]));
-								
-								k = Integer.parseInt(arr[2]);
-								p = Integer.parseInt(box4.getText());
-								sum[3] = k-p;
-								box11.setText(String.valueOf(sum[3]));
-								
-								k = Integer.parseInt(arr[4]);
-								p = Integer.parseInt(box5.getText());
-								sum[4] = k-p;
-								box12.setText(String.valueOf(sum[4]));
-								
-								k = Integer.parseInt(arr[6]);
-								p = Integer.parseInt(box6.getText());
-								sum[5] = k-p;
-								box13.setText(String.valueOf(sum[5]));
-								
-								
-								p = Integer.parseInt(box7.getText());
-								sum[6] = total2 - p;
-								box14.setText(String.valueOf(sum[6]));
+									w=0;
+									k = Integer.parseInt(arr[1]);
+									p = Integer.parseInt(box1.getText());
+									w = w+p;
+									sum[0] = k-p;
+									box8.setText(String.valueOf(sum[0]));
+									
+									k = Integer.parseInt(arr[3]);
+									p = Integer.parseInt(box2.getText());
+									w = w+p;
+									sum[1] = k-p;
+									box9.setText(String.valueOf(sum[1]));
+									
+									k = Integer.parseInt(arr[5]);
+									p = Integer.parseInt(box3.getText());
+									w = w+p;
+									sum[2] = k-p;
+									box10.setText(String.valueOf(sum[2]));
+									
+									k = Integer.parseInt(arr[2]);
+									p = Integer.parseInt(box4.getText());
+									w = w+p;
+									sum[3] = k-p;
+									box11.setText(String.valueOf(sum[3]));
+									
+									k = Integer.parseInt(arr[4]);
+									p = Integer.parseInt(box5.getText());
+									w = w+p;
+									sum[4] = k-p;
+									box12.setText(String.valueOf(sum[4]));
+									
+									k = Integer.parseInt(arr[6]);
+									p = Integer.parseInt(box6.getText());
+									w = w+p;
+									sum[5] = k-p;
+									box13.setText(String.valueOf(sum[5]));
+									
+									box7.setText(String.valueOf(w));
+									
+									p = Integer.parseInt(box7.getText());
+									sum[6] = total2 - p;
+									box14.setText(String.valueOf(sum[6]));
 								}
 						}
 					} catch (IOException e1) {
