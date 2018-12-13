@@ -15,7 +15,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 public class Sugang extends JFrame {
@@ -107,7 +106,7 @@ public class Sugang extends JFrame {
 							}
 					else {
 						for(int i=0; i<10; i++)
-							input[i] = (String)Uselect.getValueAt(a, i);
+							input[i] = (String)Uhope.getValueAt(a, i);
 						dm3.addRow(input);
 						jsc3.setVisible(false);
 						dm2.removeRow(0);
